@@ -34,6 +34,18 @@ const searchFields: SearchField[] = [
         placeholder: 'placeholder'
       }
     }
+  },
+  {
+    label: 'Select',
+    name: 'select',
+    type: 'select',
+    payload: {
+      options: [
+        { key: '1', label: 'one', value: '1' },
+        { key: '2', label: 'two', value: '2' },
+        { key: '3', label: 'three', value: '3' }
+      ]
+    }
   }
 ]
 

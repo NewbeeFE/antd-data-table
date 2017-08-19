@@ -34,10 +34,12 @@ export type SearchInfo = {
 
 export type FieldRenderer = (payload?: object) => React.ReactNode
 
+export type RendererType = 'input' | 'select'
+
 export type SearchField = {
   label: string,
   name: string,
-  type?: 'input',
+  type?: RendererType,
   renderer?: FieldRenderer,
   validationRule?: ValidationRule[],
   payload?: SearchFieldPayload
