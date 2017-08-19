@@ -1,5 +1,5 @@
 {
-  "name": "@ali/jets-data-table",
+  "name": "antd-data-table",
   "version": "0.0.0",
   "main": "dist/DataTable.dist.js",
   "files": [
