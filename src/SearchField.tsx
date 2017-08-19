@@ -13,7 +13,7 @@ import { IDataTableProps } from './'
 const FormItem = Form.Item
 
 const comesWithRenderer = {
-  input: require('./renderer/input').default
+  input: require('./renderer/input')
 }
 
 /** Your component's props */

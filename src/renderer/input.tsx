@@ -2,9 +2,10 @@ import * as React from 'react'
 import {
   Input
 } from 'antd'
+import { SearchFieldPayload } from '../'
 
-export default payload => {
+export = (payload?: SearchFieldPayload) => {
   return (
-    <Input {...this.payload} />
+    <Input {...payload && payload.props} />
   )
 }

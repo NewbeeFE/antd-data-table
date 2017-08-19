@@ -40,7 +40,13 @@ export type SearchField = {
   type?: 'input',
   renderer?: FieldRenderer,
   validationRule?: ValidationRule[],
-  payload?: object
+  payload?: SearchFieldPayload
+}
+
+export type SearchFieldPayload = {
+  /** props that pass to the main component */
+  props?: object,
+  [key: string]: any
 }
 
 /** Your component's props */

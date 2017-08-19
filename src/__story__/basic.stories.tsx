@@ -28,7 +28,12 @@ const searchFields: SearchField[] = [
   {
     label: 'ID',
     name: 'id',
-    type: 'input'
+    type: 'input',
+    payload: {
+      props: {
+        placeholder: 'placeholder'
+      }
+    }
   }
 ]
 
