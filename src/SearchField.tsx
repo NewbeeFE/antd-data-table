@@ -9,38 +9,21 @@ import {
   Input
 } from 'antd'
 import { WrappedFormUtils } from 'antd/lib/form/Form'
+import { IDataTableProps } from './'
 const FormItem = Form.Item
 
 /** Your component's props */
-export interface ISearchFieldProps {
+export interface ISearchFieldProps extends IDataTableProps {
   /** antd form instance */
   form?: WrappedFormUtils,
-  /** handle form validate error */
-  onValidateFailed?: (err: ValidateError) => void,
-  onSearch (info: SearchInfo): Promise<any>,
-  /** reject handler */
-  onError? (err): void
+  /** patch response result handler */
+  applyData: (data: any[]) => void
 }
 
 /** Your component's state */
 export interface ISearchFieldState {
   expand: boolean,
   loading: boolean
-}
-
-export type ValidateError = {
-  [fieldName: string]: {
-    errors: {
-      message: string,
-      field: string
-    }[]
-  }
-}
-
-export type SearchInfo = {
-  values: any,
-  page: number,
-  pageSize: number
 }
 
 /** Your component */
@@ -87,7 +70,7 @@ export class SearchField extends React.Component<ISearchFieldProps, ISearchField
   }
 
   onSearch = () => {
-    const { form, onError, onSearch, onValidateFailed } = this.props
+    const { form, onError, onSearch, onValidateFailed, applyData } = this.props
     if (!form) { return false }
     const { validateFields } = form
 
@@ -101,11 +84,12 @@ export class SearchField extends React.Component<ISearchFieldProps, ISearchField
         this.setState({
           loading: true
         })
-        await this.props.onSearch({
+        const res = await this.props.onSearch({
           page: 1,
           pageSize: 10,
           values
         })
+        applyData(res.data)
       } catch (e) {
         onError && onError(e)
       } finally {
