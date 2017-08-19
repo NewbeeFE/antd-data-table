@@ -13,6 +13,7 @@ import {
 import * as update from 'immutability-helper'
 import { AxiosPromise } from 'axios'
 import { TableColumnConfig } from 'antd/lib/table/Table'
+import { ValidationRule } from 'antd/lib/form/Form'
 import SearchField, { ISearchFieldProps } from './SearchField'
 import TableView from './TableView'
 
@@ -31,11 +32,26 @@ export type SearchInfo = {
   pageSize: number
 }
 
+export type FieldRenderer = (payload?: object) => React.ReactNode
+
+export type SearchField = {
+  label: string,
+  name: string,
+  type?: 'input',
+  renderer?: FieldRenderer,
+  validationRule?: ValidationRule[],
+  payload?: object
+}
+
 /** Your component's props */
 export interface IDataTableProps {
   initialColumns: TableColumnConfig<any>[],
+  searchFields: SearchField[],
+  /** 最大的表单项显示数，当表单项超过此数值时，会自动出现 collapse 按钮 */
+  maxVisibleFieldCount?: number,
   /** handle form validate error */
   onValidateFailed?: (err: ValidateError) => void,
+  /** 执行 search 动作，返回一个 AxiosPromis */
   onSearch (info: SearchInfo): AxiosPromise,
   /** reject handler */
   onError? (err): void,

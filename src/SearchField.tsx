@@ -12,6 +12,10 @@ import { WrappedFormUtils } from 'antd/lib/form/Form'
 import { IDataTableProps } from './'
 const FormItem = Form.Item
 
+const comesWithRenderer = {
+  input: require('./renderer/input').default
+}
+
 /** Your component's props */
 export interface ISearchFieldProps extends IDataTableProps {
   /** antd form instance */
@@ -34,32 +38,53 @@ export class SearchField extends React.Component<ISearchFieldProps, ISearchField
     loading: false
   }
 
+  private shouldHandleCollapse = this.props.maxVisibleFieldCount && this.props.searchFields.length > this.props.maxVisibleFieldCount
+
   toggleExpand = () => {
     const { expand } = this.state
     this.setState({ expand: !expand })
   }
 
   getFields = () => {
-    if (!this.props.form) { return false }
-    const count = this.state.expand ? 10 : 6
-    const { getFieldDecorator } = this.props.form
+    const { form, maxVisibleFieldCount, searchFields } = this.props
+    if (!form) { return false }
+    const { getFieldDecorator } = form
     const formItemLayout = {
       labelCol: { span: 5 },
       wrapperCol: { span: 19 }
     }
-    const children: JSX.Element[] = []
-    for (let i = 0; i < 10; i++) {
-      children.push(
-        <Col span={8} key={i} style={{ display: i < count ? 'block' : 'none' }}>
-          <FormItem {...formItemLayout} label={`Field ${i}`}>
-            {getFieldDecorator(`field-${i}`)(
-              <Input placeholder='placeholder' />
+    const count = this.state.expand ? searchFields.length : maxVisibleFieldCount || searchFields.length
+    return this.props.searchFields.map((searchField, i) => {
+      const renderComponent = () => {
+        if (searchField.renderer) {
+          // 自定义 renderer
+          return searchField.renderer(searchField.payload)
+        } else {
+          // 自带 renderer
+          if (searchField.type) {
+            if (comesWithRenderer[searchField.type]) {
+              return comesWithRenderer[searchField.type](searchField.payload)
+            } else {
+              console.warn('Unknown renderer:', searchField.type)
+              return false
+            }
+          } else {
+            // 既没有 type 又没有 renderer
+            console.warn('Renderer or Type should exist in search field')
+            return false
+          }
+        }
+      }
+      return (
+        <Col span={8} key={i} style={this.shouldHandleCollapse ? { display: i < count ? 'block' : 'none' } : { display: 'block' }}>
+          <FormItem {...formItemLayout} label={searchField.label}>
+            {getFieldDecorator(searchField.name, { rules: searchField.validationRule })(
+              renderComponent()
             )}
           </FormItem>
         </Col>
       )
-    }
-    return children
+    })
   }
 
   clearField = () => {
@@ -112,9 +137,11 @@ export class SearchField extends React.Component<ISearchFieldProps, ISearchField
             <Button style={{ marginLeft: 8 }} onClick={this.clearField}>
               Clear
             </Button>
-            <a style={{ marginLeft: 8, fontSize: 12 }} onClick={this.toggleExpand}>
-              Collapse <Icon type={this.state.expand ? 'up' : 'down'} />
-            </a>
+            {this.shouldHandleCollapse && (
+              <a style={{ marginLeft: 8, fontSize: 12 }} onClick={this.toggleExpand}>
+                Collapse <Icon type={this.state.expand ? 'up' : 'down'} />
+              </a>
+            )}
           </Col>
         </Row>
       </Form>
