@@ -8,7 +8,8 @@ import {
   Icon,
   Dropdown,
   Card,
-  Checkbox
+  Checkbox,
+  Menu
 } from 'antd'
 import * as update from 'immutability-helper'
 import { AxiosPromise } from 'axios'
@@ -55,10 +56,17 @@ export type SearchFieldPayload = {
   [key: string]: any
 }
 
+export type RowAction = {
+  label: string,
+  children?: RowAction[],
+  action?: (record) => void
+}
+
 /** Your component's props */
 export interface IDataTableProps {
   initialColumns: TableColumnConfig<any>[],
   searchFields: SearchField[],
+  actions?: RowAction[],
   /** 最大的表单项显示数，当表单项超过此数值时，会自动出现 collapse 按钮 */
   maxVisibleFieldCount?: number,
   pageSize: number,
@@ -81,13 +89,55 @@ export interface IDataTableState {
   searchButtonLoading: boolean
 }
 
+const renderActions = (actions: RowAction[], record) => {
+  return (
+    <span>
+      {actions.map((action, i) => {
+        if (action.children) {
+          const menu = (
+            <Menu>
+              {action.children.map(child => {
+                const onClick = () => {
+                  child.action && child.action(record)
+                }
+                return (
+                  <Menu.Item>
+                    <a onClick={onClick}>{child.label}</a>
+                  </Menu.Item>
+                )
+              })}
+            </Menu>
+          )
+          return (
+            <Dropdown overlay={menu}>
+              <a className='ant-dropdown-link'>
+                {action.label} <Icon type='down' />
+              </a>
+            </Dropdown>
+          )
+        } else {
+          const onClick = () => {
+            action.action && action.action(record)
+          }
+          return [
+            <a onClick={onClick}>{action.label}</a>,
+            i === 0 && <span className='ant-divider' />
+          ]
+        }
+      })}
+    </span>
+  )
+}
+
 /** Your component */
 export class DataTable extends React.Component<IDataTableProps, IDataTableState> {
 
-  initialColumns = this.props.initialColumns
+  actionsColumn = this.props.actions && { key: 'actions', title: 'Actions', render: (record) => { return renderActions(this.props.actions as RowAction[], record) } } as TableColumnConfig<any>
+
+  initialColumns = this.actionsColumn ? [this.actionsColumn, ...this.props.initialColumns] : this.props.initialColumns
 
   state = {
-    columns: [] = this.props.initialColumns,
+    columns: [] = this.initialColumns,
     data: [],
     page: 1,
     pagination: {} as PaginationProps,
@@ -96,7 +146,7 @@ export class DataTable extends React.Component<IDataTableProps, IDataTableState>
     searchButtonLoading: false
   }
 
-  filterPannel = (<Card bodyStyle={{ padding: '1em' }}>
+  filterPannel = (<Card bodyStyle={{ padding: '1em', width: '12em' }}>
     {this.initialColumns.map(column => {
       const isSelected = this.state.columns.find(c => c.key === column.key) !== undefined
       const onChange = (e) => {
