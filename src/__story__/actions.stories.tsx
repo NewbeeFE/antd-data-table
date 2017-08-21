@@ -85,15 +85,15 @@ const actions: RowAction[] = [
     label: 'More',
     children: [
       {
-        label: 'remove',
+        label: 'Remove',
         action (record) {
           action('onClick remove')(record)
         }
       },
       {
-        label: 'raw',
+        label: 'Open',
         action (record) {
-          action('onClick raw')(record)
+          action('onClick open')(record)
         }
       }
     ]
