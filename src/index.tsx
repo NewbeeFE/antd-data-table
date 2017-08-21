@@ -34,7 +34,7 @@ export type SearchInfo = {
   pageSize: number
 }
 
-export type SearchFunc<T = void> = (page: number, values?: object) => Promise<T>
+export type SearchFunc<T = void> = (page: number, values?: object, clearPagination?: boolean) => Promise<T>
 
 export type FieldRenderer = (payload?: object) => React.ReactNode
 
@@ -61,7 +61,7 @@ export interface IDataTableProps {
   searchFields: SearchField[],
   /** 最大的表单项显示数，当表单项超过此数值时，会自动出现 collapse 按钮 */
   maxVisibleFieldCount?: number,
-  pageSize?: number,
+  pageSize: number,
   /** handle form validate error */
   onValidateFailed?: (err: ValidateError) => void,
   /** 执行 search 动作，返回一个 AxiosPromis */
@@ -83,10 +83,6 @@ export interface IDataTableState {
 
 /** Your component */
 export class DataTable extends React.Component<IDataTableProps, IDataTableState> {
-
-  defaultProps = {
-    pageSize: 10
-  }
 
   initialColumns = this.props.initialColumns
 
@@ -148,8 +144,14 @@ export class DataTable extends React.Component<IDataTableProps, IDataTableState>
     this.setState({ data })
   }
 
-  applyValues = (values) => {
-    this.setState({ currentValues: values })
+  applyValues = (values, cb) => {
+    this.setState({ currentValues: values }, cb)
+  }
+
+  clearPagination = () => {
+    const pager = { ...this.state.pagination }
+    pager.current = 1
+    this.setState({ pagination: pager })
   }
 
   handleChange = async (pagination: PaginationProps) => {
@@ -160,31 +162,34 @@ export class DataTable extends React.Component<IDataTableProps, IDataTableState>
     this.fetch(pager.current || 1)
   }
 
-  fetch: SearchFunc = async (page: number, values: object = this.state.currentValues) => {
+  fetch: SearchFunc = async (page: number, values: object = this.state.currentValues, clearPagination: boolean = false) => {
     const { onError } = this.props
-    try {
-      this.startTableLoading()
-      const pager = { ...this.state.pagination }
-      const res = await this.props.onSearch({
-        page: page,
-        // pageSize 有 default
-        pageSize: this.props.pageSize as number,
-        values: this.state.currentValues
-      })
-      // TODO: 约定 total 字段
-      pager.total = Number(res.headers['x-total-count'] as string)
-      console.log(pager.total)
-      this.setState({
-        pagination: pager
-      })
-      // TODO: 约定 dataSource 字段
-      this.applyData(res.data)
-      this.applyValues(values)
-    } catch (e) {
-      onError && onError(e)
-    } finally {
-      this.stopTableLoading()
-    }
+    this.applyValues(values, async () => {
+      try {
+        this.startTableLoading()
+        const pager = { ...this.state.pagination }
+        const res = await this.props.onSearch({
+          page: page,
+          // pageSize 有 default
+          pageSize: this.props.pageSize as number,
+          values: this.state.currentValues
+        })
+        // TODO: 约定 total 字段
+        pager.total = Number(res.headers['x-total-count'] as string)
+        this.setState({
+          pagination: pager
+        })
+        // TODO: 约定 dataSource 字段
+        this.applyData(res.data)
+        if (clearPagination === true) {
+          this.clearPagination()
+        }
+      } catch (e) {
+        onError && onError(e)
+      } finally {
+        this.stopTableLoading()
+      }
+    })
   }
 
   hideColumn = (key?: string) => {

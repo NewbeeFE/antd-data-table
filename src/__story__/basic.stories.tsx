@@ -12,7 +12,8 @@ const onSearch = (info: SearchInfo) => {
   return axios.get('http://jsonplaceholder.typicode.com/posts', {
     params: {
       _page: info.page,
-      _limit: info.pageSize
+      _limit: info.pageSize,
+      ...info.values
     }
   })
 }
@@ -76,6 +77,7 @@ storiesOf('DataTable', module)
         searchFields={searchFields}
         initialColumns={columns}
         onSearch={onSearch}
+        pageSize={10}
       />
     </div>
   ))

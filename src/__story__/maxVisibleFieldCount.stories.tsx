@@ -56,6 +56,7 @@ storiesOf('DataTable', module)
   .add('maxVisibleFieldCount', () => (
     <div style={{ padding: '1em' }}>
       <DataTable
+        pageSize={10}
         searchFields={searchFields}
         initialColumns={columns}
         onSearch={onSearch}

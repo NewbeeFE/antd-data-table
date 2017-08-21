@@ -100,12 +100,18 @@ export class SearchField extends React.Component<ISearchFieldProps, ISearchField
     const { validateFields } = form
 
     validateFields((err, values) => {
+      // 删除空字段
+      for (let key in values) {
+        if (!values[key]) {
+          delete values[key]
+        }
+      }
       if (err) {
         onValidateFailed && onValidateFailed(err)
         return
       }
       // 从 search field 搜索从第 1 页开始
-      fetch(1, values)
+      fetch(1, values, true)
     })
   }
 
