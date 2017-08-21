@@ -9,7 +9,7 @@ import {
   Input
 } from 'antd'
 import { WrappedFormUtils } from 'antd/lib/form/Form'
-import { IDataTableProps } from './'
+import { IDataTableProps, SearchInfo, SearchFunc } from './'
 const FormItem = Form.Item
 
 const comesWithRenderer = {
@@ -21,8 +21,7 @@ const comesWithRenderer = {
 export interface ISearchFieldProps extends IDataTableProps {
   /** antd form instance */
   form?: WrappedFormUtils,
-  /** patch response result handler */
-  applyData: (data: any[]) => void
+  fetch: SearchFunc
 }
 
 /** Your component's state */
@@ -96,33 +95,17 @@ export class SearchField extends React.Component<ISearchFieldProps, ISearchField
   }
 
   onSearch = () => {
-    const { form, onError, onSearch, onValidateFailed, applyData } = this.props
+    const { form, onError, onValidateFailed, pageSize, fetch } = this.props
     if (!form) { return false }
     const { validateFields } = form
 
-    validateFields(async (err, values) => {
+    validateFields((err, values) => {
       if (err) {
         onValidateFailed && onValidateFailed(err)
         return
       }
-
-      try {
-        this.setState({
-          loading: true
-        })
-        const res = await this.props.onSearch({
-          page: 1,
-          pageSize: 10,
-          values
-        })
-        applyData(res.data)
-      } catch (e) {
-        onError && onError(e)
-      } finally {
-        this.setState({
-          loading: false
-        })
-      }
+      // 从 search field 搜索从第 1 页开始
+      fetch(1, values)
     })
   }
 

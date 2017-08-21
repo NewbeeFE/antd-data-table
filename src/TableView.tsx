@@ -3,39 +3,33 @@ import {
   Table
 } from 'antd'
 import { TableColumnConfig } from 'antd/lib/table/Table'
-import { IDataTableProps } from './'
+import { PaginationProps } from 'antd/lib/pagination/Pagination'
+import { IDataTableProps, SearchInfo, SearchFunc } from './'
 
 export interface ITableViewProps extends IDataTableProps {
   data: any[],
   columns: TableColumnConfig<any>[],
-  title?: (currentPageData) => React.ReactNode
+  pagination: PaginationProps,
+  loading: boolean,
+  title?: (currentPageData) => React.ReactNode,
+  onTableChange: (pagination: PaginationProps | boolean, filters: string[], sorter: Object) => any,
+  fetch: SearchFunc
 }
 
 export interface ITableViewState {
-  loading: boolean
 }
 
 class TableView extends React.Component<ITableViewProps, ITableViewState> {
-
-  state = {
-    loading: false
-  }
-
-  startLoading = () => {
-    this.setState({ loading: true })
-  }
-
-  stopLoading = () => {
-    this.setState({ loading: false })
-  }
 
   render () {
     return (
       <Table
         title={this.props.title}
-        loading={this.state.loading}
+        loading={this.props.loading}
         columns={this.props.columns}
         dataSource={this.props.data}
+        onChange={this.props.onTableChange}
+        pagination={this.props.pagination}
       />
     )
   }
