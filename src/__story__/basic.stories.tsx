@@ -46,6 +46,9 @@ const searchFields: SearchField[] = [
     name: 'select',
     type: 'select',
     payload: {
+      props: {
+        allowClear: true
+      },
       options: [
         { key: '1', label: 'one', value: '1' },
         { key: '2', label: 'two', value: '2' },
