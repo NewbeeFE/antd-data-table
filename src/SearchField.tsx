@@ -51,8 +51,8 @@ export class SearchField extends React.Component<ISearchFieldProps, ISearchField
     if (!form) { return false }
     const { getFieldDecorator } = form
     const formItemLayout = {
-      labelCol: { span: 5 },
-      wrapperCol: { span: 19 }
+      labelCol: { span: 8 },
+      wrapperCol: { span: 16 }
     }
     const count = this.state.expand ? searchFields.length : maxVisibleFieldCount || searchFields.length
     return this.props.searchFields.map((searchField, i) => {
@@ -77,7 +77,7 @@ export class SearchField extends React.Component<ISearchFieldProps, ISearchField
         }
       }
       return (
-        <Col span={8} key={i} style={this.shouldHandleCollapse ? { display: i < count ? 'block' : 'none' } : { display: 'block' }}>
+        <Col span={6} key={i} style={this.shouldHandleCollapse ? { display: i < count ? 'block' : 'none' } : { display: 'block' }}>
           <FormItem {...formItemLayout} label={searchField.label}>
             {getFieldDecorator(searchField.name, { rules: searchField.validationRule })(
               renderComponent()

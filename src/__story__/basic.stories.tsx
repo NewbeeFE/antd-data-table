@@ -46,6 +46,21 @@ const searchFields: SearchField[] = [
         { key: '3', label: 'three', value: '3' }
       ]
     }
+  },
+  {
+    label: 'Multi Select',
+    name: 'multi-select',
+    type: 'select',
+    payload: {
+      props: {
+        mode: 'multiple'
+      },
+      options: [
+        { key: '1', label: 'one', value: '1' },
+        { key: '2', label: 'two', value: '2' },
+        { key: '3', label: 'three', value: '3' }
+      ]
+    }
   }
 ]
 
