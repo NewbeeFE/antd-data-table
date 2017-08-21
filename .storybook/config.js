@@ -3,7 +3,7 @@ import { configure } from '@storybook/react'
 /** Import ant design less style */
 import 'antd/dist/antd.less'
 
-const req = require.context('../src', true, /\.stories\.tsx$/)
+const req = require.context('../', true, /\.stories\.tsx$/)
 
 function loadStories() {
   req.keys().forEach((filename) => req(filename))

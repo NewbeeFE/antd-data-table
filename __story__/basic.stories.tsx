@@ -6,7 +6,7 @@ import axios from 'axios'
 import { TableColumnConfig } from 'antd/lib/table/Table'
 
 /** Import component */
-import { DataTable, SearchField, SearchInfo } from '../'
+import { DataTable, SearchField, SearchInfo } from '../src'
 
 const onSearch = (info: SearchInfo) => {
   return axios.get('http://jsonplaceholder.typicode.com/posts', {
