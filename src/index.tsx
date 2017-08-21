@@ -134,7 +134,7 @@ export class DataTable extends React.Component<IDataTableProps, IDataTableState>
 
   actionsColumn = this.props.actions && { key: 'actions', title: 'Actions', render: (record) => { return renderActions(this.props.actions as RowAction[], record) } } as TableColumnConfig<any>
 
-  initialColumns = this.actionsColumn ? [this.actionsColumn, ...this.props.initialColumns] : this.props.initialColumns
+  initialColumns = this.actionsColumn ? [...this.props.initialColumns, this.actionsColumn] : this.props.initialColumns
 
   state = {
     columns: [] = this.initialColumns,
