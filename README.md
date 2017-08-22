@@ -11,7 +11,7 @@ Free from:
 - Writing search field form item components
 - Writing row actions components
 
-Just focuse on:
+Just focus on:
 
 - Doing the data fetching request and return the data
 - Rendering a specific data field if needed
