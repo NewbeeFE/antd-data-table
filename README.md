@@ -25,7 +25,7 @@ $ yarn add antd-data-table --save
 
 ## Simplest data table
 
-[Demo]()
+[Demo](https://newbeefe.github.io/antd-data-table/?selectedKind=DataTable&selectedStory=basic)
 
 ```tsx
 import { DataTable } from 'antd-data-table'
@@ -96,7 +96,7 @@ render(
 
 Sometimes there are many search fields, you could set a `maxVisibleFieldCount` to automatically have a collapsable form:
 
-[Demo]()
+[Demo](https://newbeefe.github.io/antd-data-table/?selectedKind=DataTable&selectedStory=maxVisibleFieldCount)
 
 ```diff
 import { DataTable } from 'antd-data-table'
@@ -116,7 +116,7 @@ render(
 
 We usually need to write some action buttons for operating a specific record. `antd-data-table` made it super easy:
 
-[Demo]()
+[Demo](https://newbeefe.github.io/antd-data-table/?selectedKind=DataTable&selectedStory=rowActions)
 
 ```tsx
 const actions: RowAction[] = [
@@ -160,7 +160,7 @@ render(
 
 Plugins are for operating multiple records. Every plugin will render a component at the top of table.
 
-[Demo]()
+[Demo](https://newbeefe.github.io/antd-data-table/?selectedKind=DataTable&selectedStory=plugins)
 
 Let's write a simplest plugin: A button that show current selected rows' ids:
 
