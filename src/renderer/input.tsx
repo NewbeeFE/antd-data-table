@@ -4,7 +4,7 @@ import {
 } from 'antd'
 import { SearchFieldPayload } from '../'
 
-export = (payload?: SearchFieldPayload) => {
+export default (payload?: SearchFieldPayload) => {
   return (
     <Input {...payload && payload.props} />
   )

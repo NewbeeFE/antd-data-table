@@ -13,6 +13,7 @@
     "build": "CHOPPING=build webpack --config ./.storybook/webpack.config.js"
   },
   "devDependencies": {
+    "@storybook/addon-storyshots": "^3.2.5",
     "@storybook/react": "^3.2.5",
     "@types/enzyme": "^2.8.6",
     "@types/immutability-helper": "^2.0.15",

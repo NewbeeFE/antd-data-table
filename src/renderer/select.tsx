@@ -10,7 +10,7 @@ type SelectOption = {
   value: string
 }
 
-export = (payload?: SearchFieldPayload) => {
+export default (payload?: SearchFieldPayload) => {
   if (!payload || !payload.options) {
     console.warn('select renderere expected `options`')
     return null

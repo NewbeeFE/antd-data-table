@@ -12,9 +12,12 @@ import { WrappedFormUtils } from 'antd/lib/form/Form'
 import { IDataTableProps, SearchInfo, SearchFunc } from './'
 const FormItem = Form.Item
 
+import InputRenderer from './renderer/input'
+import SelectRenderer from './renderer/select'
+
 const comesWithRenderer = {
-  input: require('./renderer/input'),
-  select: require('./renderer/select')
+  input: InputRenderer,
+  select: SelectRenderer
 }
 
 /** Your component's props */
