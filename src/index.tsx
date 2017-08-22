@@ -36,6 +36,11 @@ export type SearchInfo = {
 
 export type SearchFunc<T = void> = (page: number, values?: object, clearPagination?: boolean) => Promise<T>
 
+export type SearchResponse<T> = {
+  dataSource: T[],
+  total: number
+}
+
 export type FieldRenderer = (payload?: object) => React.ReactNode
 
 export type RendererType = 'input' | 'select'
@@ -72,15 +77,16 @@ export interface IDataTableProps {
   searchFields: SearchField[],
   rowActions?: RowAction[],
   plugins?: Plugin[],
+  rowKey: (record: any) => string
   /** 最大的表单项显示数，当表单项超过此数值时，会自动出现 collapse 按钮 */
   maxVisibleFieldCount?: number,
   pageSize: number,
   /** handle form validate error */
   onValidateFailed?: (err: ValidateError) => void,
   /** 执行 search 动作，返回一个 AxiosPromis */
-  onSearch (info: SearchInfo): AxiosPromise,
+  onSearch<T> (info: SearchInfo): Promise<SearchResponse<T>>,
   /** reject handler */
-  onError? (err): void,
+  onError? (err): void
 }
 
 /** Your component's state */
@@ -227,19 +233,17 @@ export class DataTable extends React.Component<IDataTableProps, IDataTableState>
       try {
         this.startTableLoading()
         const pager = { ...this.state.pagination }
-        const res = await this.props.onSearch({
+        const response = await this.props.onSearch({
           page: page,
           // pageSize 有 default
           pageSize: this.props.pageSize as number,
           values: this.state.currentValues
         })
-        // TODO: 约定 total 字段
-        pager.total = Number(res.headers['x-total-count'] as string)
+        pager.total = response.total
         this.setState({
           pagination: pager
         })
-        // TODO: 约定 dataSource 字段
-        this.applyData(res.data)
+        this.applyData(response.dataSource)
         if (clearPagination === true) {
           this.clearPagination()
         }
@@ -278,11 +282,6 @@ export class DataTable extends React.Component<IDataTableProps, IDataTableState>
     })
   }
 
-  rowKey = (data) => {
-    // TODO: 约定 row key
-    return data.id
-  }
-
   render () {
     const rowSelection = {
       selectedRowKeys: this.state.selectedRowKeys,
@@ -314,7 +313,7 @@ export class DataTable extends React.Component<IDataTableProps, IDataTableState>
               size='middle'
               title={this.tableTitle}
               rowSelection={rowSelection}
-              rowKey={this.rowKey}
+              rowKey={this.props.rowKey}
               loading={this.state.tableLoading}
               columns={this.state.columns}
               dataSource={this.state.data}

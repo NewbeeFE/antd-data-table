@@ -8,13 +8,18 @@ import { TableColumnConfig } from 'antd/lib/table/Table'
 /** Import component */
 import { DataTable, SearchField, SearchInfo } from '../src'
 
-const onSearch = (info: SearchInfo) => {
-  return axios.get('http://jsonplaceholder.typicode.com/posts', {
+const onSearch = async (info: SearchInfo) => {
+  const res = await axios.get('http://jsonplaceholder.typicode.com/posts', {
     params: {
       _page: info.page,
-      _limit: info.pageSize
+      _limit: info.pageSize,
+      ...info.values
     }
   })
+  return {
+    dataSource: res.data,
+    total: res.headers['x-total-count']
+  }
 }
 
 const columns: TableColumnConfig<any>[] = [
@@ -56,6 +61,7 @@ storiesOf('DataTable', module)
   .add('maxVisibleFieldCount', () => (
     <div style={{ padding: '1em' }}>
       <DataTable
+        rowKey={record => record.id}
         pageSize={10}
         searchFields={searchFields}
         initialColumns={columns}
