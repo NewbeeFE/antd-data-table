@@ -44,11 +44,17 @@ export type FieldRenderer = (payload?: object) => React.ReactNode
 export type RendererType = 'input' | 'select'
 
 export type SearchField = {
+  /** 条件名称 */
   label: string,
+  /** 条件别名，会作为 onSearch 时 values 的 key 名 */
   name: string,
+  /** 渲染的组件类型 */
   type?: RendererType,
+  /** 当不使用自带的组件类型时，可以自己写 renderer */
   renderer?: FieldRenderer,
+  /** antd 的表单验证规则 */
   validationRule?: ValidationRule[],
+  /** 传给渲染的组件的参数 */
   payload?: SearchFieldPayload
 }
 
@@ -75,6 +81,7 @@ export interface IDataTableProps {
   searchFields: SearchField[],
   rowActions?: RowAction[],
   plugins?: Plugin[],
+  /** 表格行 key 的取值 */
   rowKey: (record: any) => string,
   title?: React.ReactNode,
   searchBtnText?: string,
