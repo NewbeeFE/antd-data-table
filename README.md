@@ -1,5 +1,10 @@
 # antd-data-table
 
+[![npm](https://img.shields.io/npm/dm/antd-data-table.svg)](https://www.npmjs.com/package/antd-data-table)
+[![npm](https://img.shields.io/npm/v/antd-data-table.svg)](https://www.npmjs.com/package/antd-data-table)
+[![Build Status](https://travis-ci.org/NewbeeFE/antd-data-table.svg?branch=master)](https://travis-ci.org/NewbeeFE/antd-data-table)
+[![antd](https://img.shields.io/badge/antd-v2.x-yellowgreen.svg)](https://github.com/ant-design/ant-design)
+
 A component that combines antd's Table and Form to do the search, display, and operating jobs for data.
 
 ![](https://user-images.githubusercontent.com/914329/29578209-0af170f4-87a1-11e7-95d0-1b00a141b581.png)
