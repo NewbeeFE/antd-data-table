@@ -122,6 +122,7 @@ export class SearchField extends React.Component<ISearchFieldProps, ISearchField
     return (
       <Form
         className='ant-advanced-search-form'
+        style={{ marginBottom: '1em' }}
       >
         <Row gutter={40}>{this.getFields()}</Row>
         <Row>

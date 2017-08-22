@@ -299,15 +299,15 @@ export class DataTable extends React.Component<IDataTableProps, IDataTableState>
           <SearchField {...this.props} fetch={this.fetch} />
         </div>
         <div>
-          <Row className='operationpannel' gutter={16} type='flex' style={{ paddingTop: '1em', paddingBottom: '1em' }}>
-            {(this.props.plugins || []).map(plugin => {
+          {this.props.plugins && <Row className='operationpannel' gutter={16} type='flex' style={{ paddingBottom: '1em' }}>
+            {(this.props.plugins).map(plugin => {
               return (
                 <Col span={plugin.colSpan}>
                   {plugin.renderer(this.state.selectedRowKeys, this.state.selectedRows, this.clearSelection)}
                 </Col>
               )
             })}
-          </Row>
+          </Row>}
           <Row>
             <Table
               bordered
