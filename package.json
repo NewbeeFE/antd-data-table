@@ -62,7 +62,6 @@
   "external": [
     "react",
     "antd",
-    "axios",
     "immutability-helper"
   ],
   "dependencies": {

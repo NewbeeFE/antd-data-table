@@ -89,7 +89,7 @@ const plugins: Plugin[] = [
         clearSelectionCallback()
       }
       return (
-        <Button onClick={onClick}>Test</Button>
+        <Button onClick={onClick}>Plugin A</Button>
       )
     }
   },
@@ -100,7 +100,7 @@ const plugins: Plugin[] = [
         clearSelectionCallback()
       }
       return (
-        <Button onClick={onClick}>Test</Button>
+        <Button onClick={onClick}>Plugin 2</Button>
       )
     }
   }

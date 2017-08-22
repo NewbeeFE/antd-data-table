@@ -81,6 +81,7 @@ storiesOf('DataTable', module)
   .add('basic', () => (
     <div style={{ padding: '1em' }}>
       <DataTable
+        title={<h4>Posts from JSONPlaceholder </h4>}
         rowKey={record => record.id}
         searchFields={searchFields}
         initialColumns={columns}

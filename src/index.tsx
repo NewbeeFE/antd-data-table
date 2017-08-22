@@ -12,7 +12,6 @@ import {
   Menu
 } from 'antd'
 import * as update from 'immutability-helper'
-import { AxiosPromise } from 'axios'
 import { TableColumnConfig } from 'antd/lib/table/Table'
 import { PaginationProps } from 'antd/lib/pagination/Pagination'
 
