@@ -18,7 +18,6 @@ import { PaginationProps } from 'antd/lib/pagination/Pagination'
 
 import { ValidationRule } from 'antd/lib/form/Form'
 import SearchField, { ISearchFieldProps } from './SearchField'
-import TableView from './TableView'
 
 export type ValidateError = {
   [fieldName: string]: {
@@ -62,11 +61,17 @@ export type RowAction = {
   action?: (record) => void
 }
 
+export type Plugin = {
+  colSpan?: number,
+  renderer: (selectedRowKeys: string[], selectedRows: any[], clearSelectionCallback: () => void) => React.ReactNode
+}
+
 /** Your component's props */
 export interface IDataTableProps {
   initialColumns: TableColumnConfig<any>[],
   searchFields: SearchField[],
-  actions?: RowAction[],
+  rowActions?: RowAction[],
+  plugins?: Plugin[],
   /** 最大的表单项显示数，当表单项超过此数值时，会自动出现 collapse 按钮 */
   maxVisibleFieldCount?: number,
   pageSize: number,
@@ -86,7 +91,9 @@ export interface IDataTableState {
   currentValues: object,
   pagination: PaginationProps,
   tableLoading: boolean,
-  searchButtonLoading: boolean
+  searchButtonLoading: boolean,
+  selectedRowKeys: string[],
+  selectedRows: any[]
 }
 
 const renderActions = (actions: RowAction[], record) => {
@@ -132,7 +139,7 @@ const renderActions = (actions: RowAction[], record) => {
 /** Your component */
 export class DataTable extends React.Component<IDataTableProps, IDataTableState> {
 
-  actionsColumn = this.props.actions && { key: 'actions', title: 'Actions', render: (record) => { return renderActions(this.props.actions as RowAction[], record) } } as TableColumnConfig<any>
+  actionsColumn = this.props.rowActions && { key: 'actions', title: 'Actions', render: (record) => { return renderActions(this.props.rowActions as RowAction[], record) } } as TableColumnConfig<any>
 
   initialColumns = this.actionsColumn ? [...this.props.initialColumns, this.actionsColumn] : this.props.initialColumns
 
@@ -143,7 +150,9 @@ export class DataTable extends React.Component<IDataTableProps, IDataTableState>
     pagination: {} as PaginationProps,
     currentValues: {},
     tableLoading: false,
-    searchButtonLoading: false
+    searchButtonLoading: false,
+    selectedRows: [],
+    selectedRowKeys: []
   }
 
   filterPannel = (<Card bodyStyle={{ padding: '1em', width: '12em' }}>
@@ -184,7 +193,7 @@ export class DataTable extends React.Component<IDataTableProps, IDataTableState>
     return <Row type='flex' justify='end'>
       <Col>
         <Dropdown overlay={this.filterPannel} trigger={['click']}>
-          <Button>列表选项</Button>
+          <Button size='small'>列表选项</Button>
         </Dropdown>
       </Col>
     </Row>
@@ -252,6 +261,13 @@ export class DataTable extends React.Component<IDataTableProps, IDataTableState>
     })
   }
 
+  clearSelection = () => {
+    this.setState({
+      selectedRows: [],
+      selectedRowKeys: []
+    })
+  }
+
   showColumn = (key?: string) => {
     this.initialColumns.forEach((column, i) => {
       if (column.key === key) {
@@ -262,23 +278,50 @@ export class DataTable extends React.Component<IDataTableProps, IDataTableState>
     })
   }
 
+  rowKey = (data) => {
+    // TODO: 约定 row key
+    return data.id
+  }
+
   render () {
+    const rowSelection = {
+      selectedRowKeys: this.state.selectedRowKeys,
+      onChange: (selectedRowKeys, selectedRows) => {
+        this.setState({
+          selectedRowKeys, selectedRows
+        })
+      }
+    }
+
     return (
       <div>
         <div>
           <SearchField {...this.props} fetch={this.fetch} />
         </div>
         <div>
-          <TableView
-            title={this.tableTitle}
-            loading={this.state.tableLoading}
-            {...this.props}
-            columns={this.state.columns}
-            data={this.state.data}
-            fetch={this.fetch}
-            onTableChange={this.handleChange}
-            pagination={this.state.pagination}
-          />
+          <Row className='operationpannel' gutter={16} type='flex' style={{ paddingTop: '1em', paddingBottom: '1em' }}>
+            {(this.props.plugins || []).map(plugin => {
+              return (
+                <Col span={plugin.colSpan}>
+                  {plugin.renderer(this.state.selectedRowKeys, this.state.selectedRows, this.clearSelection)}
+                </Col>
+              )
+            })}
+          </Row>
+          <Row>
+            <Table
+              bordered
+              size='middle'
+              title={this.tableTitle}
+              rowSelection={rowSelection}
+              rowKey={this.rowKey}
+              loading={this.state.tableLoading}
+              columns={this.state.columns}
+              dataSource={this.state.data}
+              onChange={this.handleChange}
+              pagination={this.state.pagination}
+            />
+          </Row>
         </div>
       </div>
     )

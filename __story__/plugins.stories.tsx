@@ -1,13 +1,16 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
+import {
+  Button
+} from 'antd'
 
 import axios from 'axios'
 
 import { TableColumnConfig } from 'antd/lib/table/Table'
 
 /** Import component */
-import { DataTable, SearchField, SearchInfo, RowAction } from '../src'
+import { DataTable, SearchField, SearchInfo, Plugin } from '../src'
 
 const onSearch = (info: SearchInfo) => {
   return axios.get('http://jsonplaceholder.typicode.com/posts', {
@@ -74,41 +77,40 @@ const searchFields: SearchField[] = [
   }
 ]
 
-const actions: RowAction[] = [
+const plugins: Plugin[] = [
   {
-    label: 'Edit',
-    action (record) {
-      action('onClick edit')(record)
+    renderer (selectedRowKeys, selectedRows, clearSelectionCallback) {
+      const onClick = () => {
+        action('onClick test plugin')(selectedRowKeys)
+        clearSelectionCallback()
+      }
+      return (
+        <Button onClick={onClick}>Test</Button>
+      )
     }
   },
   {
-    label: 'More',
-    children: [
-      {
-        label: 'Remove',
-        action (record) {
-          action('onClick remove')(record)
-        }
-      },
-      {
-        label: 'Open',
-        action (record) {
-          action('onClick open')(record)
-        }
+    renderer (selectedRowKeys, selectedRows, clearSelectionCallback) {
+      const onClick = () => {
+        action('onClick test plugin')(selectedRowKeys)
+        clearSelectionCallback()
       }
-    ]
+      return (
+        <Button onClick={onClick}>Test</Button>
+      )
+    }
   }
 ]
 
 storiesOf('DataTable', module)
-  .add('actions', () => (
+  .add('plugins', () => (
     <div style={{ padding: '1em' }}>
       <DataTable
         searchFields={searchFields}
+        plugins={plugins}
         initialColumns={columns}
         onSearch={onSearch}
         pageSize={10}
-        rowActions={actions}
       />
     </div>
   ))

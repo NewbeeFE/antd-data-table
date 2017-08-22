@@ -1,13 +1,12 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import { action } from '@storybook/addon-actions'
 
 import axios from 'axios'
 
 import { TableColumnConfig } from 'antd/lib/table/Table'
 
 /** Import component */
-import { DataTable, SearchField, SearchInfo, RowAction } from '../src'
+import { DataTable, SearchField, SearchInfo } from '../src'
 
 const onSearch = (info: SearchInfo) => {
   return axios.get('http://jsonplaceholder.typicode.com/posts', {
@@ -74,41 +73,14 @@ const searchFields: SearchField[] = [
   }
 ]
 
-const actions: RowAction[] = [
-  {
-    label: 'Edit',
-    action (record) {
-      action('onClick edit')(record)
-    }
-  },
-  {
-    label: 'More',
-    children: [
-      {
-        label: 'Remove',
-        action (record) {
-          action('onClick remove')(record)
-        }
-      },
-      {
-        label: 'Open',
-        action (record) {
-          action('onClick open')(record)
-        }
-      }
-    ]
-  }
-]
-
 storiesOf('DataTable', module)
-  .add('actions', () => (
+  .add('selectable', () => (
     <div style={{ padding: '1em' }}>
       <DataTable
         searchFields={searchFields}
         initialColumns={columns}
         onSearch={onSearch}
         pageSize={10}
-        rowActions={actions}
       />
     </div>
   ))
