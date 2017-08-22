@@ -4,7 +4,7 @@ import { SearchInfo, SearchField } from '../src/index'
 import { TableColumnConfig } from 'antd/lib/table/Table'
 
 export const onSearch = async (info: SearchInfo) => {
-  const res = await axios.get('http://jsonplaceholder.typicode.com/posts', {
+  const res = await axios.get('//jsonplaceholder.typicode.com/posts', {
     params: {
       _page: info.page,
       _limit: info.pageSize,
