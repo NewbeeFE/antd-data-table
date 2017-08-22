@@ -1,7 +1,6 @@
 import * as React from 'react'
 import {
   Button,
-  Form,
   Table,
   Row,
   Col,
@@ -16,7 +15,7 @@ import { TableColumnConfig } from 'antd/lib/table/Table'
 import { PaginationProps } from 'antd/lib/pagination/Pagination'
 
 import { ValidationRule } from 'antd/lib/form/Form'
-import SearchField, { ISearchFieldProps } from './SearchField'
+import SearchField from './SearchField'
 
 export type ValidateError = {
   [fieldName: string]: {
@@ -238,12 +237,11 @@ export class DataTable extends React.Component<IDataTableProps, IDataTableState>
     this.setState({ pagination: pager })
   }
 
-  handleChange = async (pagination: PaginationProps) => {
-    const { onError } = this.props
+  handleChange = (pagination: PaginationProps) => {
     const pager = { ...this.state.pagination }
     pager.current = pagination.current
     this.setState({ pagination: pager })
-    this.fetch(pager.current || 1)
+    this.fetch(pager.current || 1) // tslint:disable-line
   }
 
   fetch: SearchFunc = async (page: number, values: object = this.state.currentValues, clearPagination: boolean = false) => {

@@ -11,6 +11,8 @@ ShallowWrapper {
   "node": <div>
     <div>
         <Form(WrappedComponent)
+            btnLoading={false}
+            clearBtnText="Clear"
             fetch={[Function]}
             initialColumns={
                 Array [
@@ -26,8 +28,10 @@ ShallowWrapper {
                     },
                   ]
             }
+            listSelectionBtnText="List selection"
             onSearch={[Function]}
             pageSize={10}
+            searchBtnText="Search"
             searchFields={
                 Array [
                     Object {
@@ -100,19 +104,6 @@ ShallowWrapper {
     </div>
     <div>
         <Row
-            className="operationpannel"
-            gutter={16}
-            style={
-                Object {
-                    "paddingBottom": "1em",
-                    "paddingTop": "1em",
-                  }
-            }
-            type="flex"
-        >
-            
-        </Row>
-        <Row
             gutter={0}
         >
             <Table
@@ -139,7 +130,7 @@ ShallowWrapper {
                 onChange={[Function]}
                 pagination={Object {}}
                 prefixCls="ant-table"
-                rowKey={[Function]}
+                rowKey="key"
                 rowSelection={
                     Object {
                         "onChange": [Function],
@@ -158,6 +149,8 @@ ShallowWrapper {
     <div>
       <div>
             <Form(WrappedComponent)
+                  btnLoading={false}
+                  clearBtnText="Clear"
                   fetch={[Function]}
                   initialColumns={
                         Array [
@@ -173,8 +166,10 @@ ShallowWrapper {
                               },
                             ]
                   }
+                  listSelectionBtnText="List selection"
                   onSearch={[Function]}
                   pageSize={10}
+                  searchBtnText="Search"
                   searchFields={
                         Array [
                               Object {
@@ -247,19 +242,6 @@ ShallowWrapper {
       </div>
       <div>
             <Row
-                  className="operationpannel"
-                  gutter={16}
-                  style={
-                        Object {
-                              "paddingBottom": "1em",
-                              "paddingTop": "1em",
-                            }
-                  }
-                  type="flex"
-            >
-                  
-            </Row>
-            <Row
                   gutter={0}
             >
                   <Table
@@ -286,7 +268,7 @@ ShallowWrapper {
                         onChange={[Function]}
                         pagination={Object {}}
                         prefixCls="ant-table"
-                        rowKey={[Function]}
+                        rowKey="key"
                         rowSelection={
                               Object {
                                     "onChange": [Function],
@@ -309,6 +291,7 @@ ShallowWrapper {
       "_compositeType": 0,
       "_context": Object {},
       "_currentElement": <DataTable
+        clearBtnText="Clear"
         initialColumns={
                 Array [
                         Object {
@@ -323,8 +306,10 @@ ShallowWrapper {
                         },
                       ]
         }
+        listSelectionBtnText="List selection"
         onSearch={[Function]}
         pageSize={10}
+        searchBtnText="Search"
         searchFields={
                 Array [
                         Object {
@@ -464,6 +449,7 @@ ShallowWrapper {
           },
         ],
         "props": Object {
+          "clearBtnText": "Clear",
           "initialColumns": Array [
             Object {
               "dataIndex": "id",
@@ -476,8 +462,10 @@ ShallowWrapper {
               "title": "Title",
             },
           ],
+          "listSelectionBtnText": "List selection",
           "onSearch": [Function],
           "pageSize": 10,
+          "searchBtnText": "Search",
           "searchFields": Array [
             Object {
               "label": "ID",
@@ -546,7 +534,6 @@ ShallowWrapper {
           ],
         },
         "refs": Object {},
-        "rowKey": [Function],
         "showColumn": [Function],
         "startSearchButtonLoading": [Function],
         "startTableLoading": [Function],
@@ -596,6 +583,8 @@ ShallowWrapper {
         "_currentElement": <div>
           <div>
                     <Form(WrappedComponent)
+                              btnLoading={false}
+                              clearBtnText="Clear"
                               fetch={[Function]}
                               initialColumns={
                                         Array [
@@ -611,8 +600,10 @@ ShallowWrapper {
                                                   },
                                                 ]
                               }
+                              listSelectionBtnText="List selection"
                               onSearch={[Function]}
                               pageSize={10}
+                              searchBtnText="Search"
                               searchFields={
                                         Array [
                                                   Object {
@@ -685,19 +676,6 @@ ShallowWrapper {
           </div>
           <div>
                     <Row
-                              className="operationpannel"
-                              gutter={16}
-                              style={
-                                        Object {
-                                                  "paddingBottom": "1em",
-                                                  "paddingTop": "1em",
-                                                }
-                              }
-                              type="flex"
-                    >
-                              
-                    </Row>
-                    <Row
                               gutter={0}
                     >
                               <Table
@@ -724,7 +702,7 @@ ShallowWrapper {
                                         onChange={[Function]}
                                         pagination={Object {}}
                                         prefixCls="ant-table"
-                                        rowKey={[Function]}
+                                        rowKey="key"
                                         rowSelection={
                                                   Object {
                                                             "onChange": [Function],
@@ -743,6 +721,8 @@ ShallowWrapper {
         "_renderedOutput": <div>
           <div>
                     <Form(WrappedComponent)
+                              btnLoading={false}
+                              clearBtnText="Clear"
                               fetch={[Function]}
                               initialColumns={
                                         Array [
@@ -758,8 +738,10 @@ ShallowWrapper {
                                                   },
                                                 ]
                               }
+                              listSelectionBtnText="List selection"
                               onSearch={[Function]}
                               pageSize={10}
+                              searchBtnText="Search"
                               searchFields={
                                         Array [
                                                   Object {
@@ -832,19 +814,6 @@ ShallowWrapper {
           </div>
           <div>
                     <Row
-                              className="operationpannel"
-                              gutter={16}
-                              style={
-                                        Object {
-                                                  "paddingBottom": "1em",
-                                                  "paddingTop": "1em",
-                                                }
-                              }
-                              type="flex"
-                    >
-                              
-                    </Row>
-                    <Row
                               gutter={0}
                     >
                               <Table
@@ -871,7 +840,7 @@ ShallowWrapper {
                                         onChange={[Function]}
                                         pagination={Object {}}
                                         prefixCls="ant-table"
-                                        rowKey={[Function]}
+                                        rowKey="key"
                                         rowSelection={
                                                   Object {
                                                             "onChange": [Function],
@@ -898,6 +867,7 @@ ShallowWrapper {
   },
   "root": [Circular],
   "unrendered": <DataTable
+    clearBtnText="Clear"
     initialColumns={
         Array [
             Object {
@@ -912,8 +882,10 @@ ShallowWrapper {
             },
           ]
     }
+    listSelectionBtnText="List selection"
     onSearch={[Function]}
     pageSize={10}
+    searchBtnText="Search"
     searchFields={
         Array [
             Object {

@@ -2,14 +2,12 @@ import * as React from 'react'
 import {
   Button,
   Form,
-  Table,
   Row,
   Col,
-  Icon,
-  Input
+  Icon
 } from 'antd'
 import { WrappedFormUtils } from 'antd/lib/form/Form'
-import { IDataTableProps, SearchInfo, SearchFunc } from './'
+import { IDataTableProps, SearchFunc } from './'
 const FormItem = Form.Item
 
 import InputRenderer from './renderer/input'
@@ -97,7 +95,7 @@ export class SearchField extends React.Component<ISearchFieldProps, ISearchField
   }
 
   onSearch = () => {
-    const { form, onError, onValidateFailed, pageSize, fetch } = this.props
+    const { form, onValidateFailed, fetch } = this.props
     if (!form) { return false }
     const { validateFields } = form
 
@@ -113,7 +111,7 @@ export class SearchField extends React.Component<ISearchFieldProps, ISearchField
         return
       }
       // 从 search field 搜索从第 1 页开始
-      fetch(1, values, true)
+      fetch(1, values, true) // tslint:disable-line
     })
   }
 

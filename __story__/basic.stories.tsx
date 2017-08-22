@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-
+import { message } from 'antd'
 import axios from 'axios'
 
 import { TableColumnConfig } from 'antd/lib/table/Table'
@@ -20,6 +20,10 @@ const onSearch = async (info: SearchInfo) => {
     dataSource: res.data,
     total: res.headers['x-total-count']
   }
+}
+
+const onError = (e) => {
+  message.error(e.message)
 }
 
 const columns: TableColumnConfig<any>[] = [
@@ -87,6 +91,7 @@ storiesOf('DataTable', module)
         initialColumns={columns}
         onSearch={onSearch}
         pageSize={10}
+        onError={onError}
       />
     </div>
   ))
