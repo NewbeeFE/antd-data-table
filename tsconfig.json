@@ -5,7 +5,10 @@
     "strictNullChecks": true,
     "target": "es5",
     "experimentalDecorators": true,
+    "declaration": true,
     "allowSyntheticDefaultImports": true,
+    "rootDir": "src",
+    "outDir": "dist",
     "lib": [
       "es5",
       "es2015",

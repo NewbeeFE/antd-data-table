@@ -1,7 +1,7 @@
 {
   "name": "antd-data-table",
   "version": "0.1.0",
-  "main": "dist/DataTable.dist.js",
+  "main": "dist/DataTable.js",
   "files": [
     "dist"
   ],
@@ -11,6 +11,7 @@
     "cov": "npm test -- --coverage",
     "lint": "tslint 'src/**/*.ts?(x)' --type-check --project tsconfig.json",
     "build": "CHOPPING=build webpack --config ./.storybook/webpack.config.js",
+    "tsc": "tsc",
     "build:storybook": "build-storybook -c .storybook -o docs",
     "pre-release": "npm run lint && npm test && rimraf dist && npm run build && npm run build:storybook",
     "patch": "npm run pre-release && npm version patch",
@@ -30,6 +31,7 @@
     "awesome-typescript-loader": "^3.2.3",
     "axios": "^0.16.2",
     "css-loader": "^0.28.5",
+    "declaration-bundler-webpack-plugin": "^1.0.3",
     "enzyme": "^2.9.1",
     "http-proxy-middleware": "^0.17.4",
     "jest": "^20.0.4",
