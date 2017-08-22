@@ -24,21 +24,20 @@ const comesWithRenderer = {
 export interface ISearchFieldProps extends IDataTableProps {
   /** antd form instance */
   form?: WrappedFormUtils,
-  fetch: SearchFunc
+  fetch: SearchFunc,
+  btnLoading: boolean
 }
 
 /** Your component's state */
 export interface ISearchFieldState {
-  expand: boolean,
-  loading: boolean
+  expand: boolean
 }
 
 /** Your component */
 export class SearchField extends React.Component<ISearchFieldProps, ISearchFieldState> {
 
   state = {
-    expand: false,
-    loading: false
+    expand: false
   }
 
   private shouldHandleCollapse = this.props.maxVisibleFieldCount && this.props.searchFields.length > this.props.maxVisibleFieldCount
@@ -127,9 +126,9 @@ export class SearchField extends React.Component<ISearchFieldProps, ISearchField
         <Row gutter={40}>{this.getFields()}</Row>
         <Row>
           <Col span={24} style={{ textAlign: 'right' }}>
-            <Button type='primary' onClick={this.onSearch} loading={this.state.loading}>Search</Button>
+            <Button type='primary' onClick={this.onSearch} loading={this.props.btnLoading}>{this.props.searchBtnText}</Button>
             <Button style={{ marginLeft: 8 }} onClick={this.clearField}>
-              Clear
+              {this.props.clearBtnText}
             </Button>
             {this.shouldHandleCollapse && (
               <a style={{ marginLeft: 8, fontSize: 12 }} onClick={this.toggleExpand}>

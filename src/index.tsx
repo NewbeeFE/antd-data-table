@@ -77,10 +77,13 @@ export interface IDataTableProps {
   searchFields: SearchField[],
   rowActions?: RowAction[],
   plugins?: Plugin[],
-  rowKey: (record: any) => string
+  rowKey: (record: any) => string,
+  searchBtnText?: string,
+  clearBtnText?: string,
+  listSelectionBtnText?: string,
   /** 最大的表单项显示数，当表单项超过此数值时，会自动出现 collapse 按钮 */
   maxVisibleFieldCount?: number,
-  pageSize: number,
+  pageSize?: number,
   /** handle form validate error */
   onValidateFailed?: (err: ValidateError) => void,
   /** 执行 search 动作，返回一个 AxiosPromis */
@@ -145,6 +148,13 @@ const renderActions = (actions: RowAction[], record) => {
 /** Your component */
 export class DataTable extends React.Component<IDataTableProps, IDataTableState> {
 
+  static defaultProps = {
+    pageSize: 10,
+    searchBtnText: 'Search',
+    clearBtnText: 'Clear',
+    listSelectionBtnText: 'List selection'
+  }
+
   actionsColumn = this.props.rowActions && { key: 'actions', title: 'Actions', render: (record) => { return renderActions(this.props.rowActions as RowAction[], record) } } as TableColumnConfig<any>
 
   initialColumns = this.actionsColumn ? [...this.props.initialColumns, this.actionsColumn] : this.props.initialColumns
@@ -199,7 +209,7 @@ export class DataTable extends React.Component<IDataTableProps, IDataTableState>
     return <Row type='flex' justify='end'>
       <Col>
         <Dropdown overlay={this.filterPannel} trigger={['click']}>
-          <Button size='small'>列表选项</Button>
+          <Button size='small'>{this.props.listSelectionBtnText}</Button>
         </Dropdown>
       </Col>
     </Row>
@@ -231,6 +241,8 @@ export class DataTable extends React.Component<IDataTableProps, IDataTableState>
     const { onError } = this.props
     this.applyValues(values, async () => {
       try {
+        // 这里先简单认为 clearPagination 为 true 就是从 Search button 触发的 fetch
+        clearPagination && this.startSearchButtonLoading()
         this.startTableLoading()
         const pager = { ...this.state.pagination }
         const response = await this.props.onSearch({
@@ -244,12 +256,11 @@ export class DataTable extends React.Component<IDataTableProps, IDataTableState>
           pagination: pager
         })
         this.applyData(response.dataSource)
-        if (clearPagination === true) {
-          this.clearPagination()
-        }
+        clearPagination && this.clearPagination()
       } catch (e) {
         onError && onError(e)
       } finally {
+        clearPagination && this.stopSearchButtonLoading()
         this.stopTableLoading()
       }
     })
@@ -295,7 +306,7 @@ export class DataTable extends React.Component<IDataTableProps, IDataTableState>
     return (
       <div>
         <div>
-          <SearchField {...this.props} fetch={this.fetch} />
+          <SearchField {...this.props} fetch={this.fetch} btnLoading={this.state.searchButtonLoading} />
         </div>
         <div>
           {this.props.plugins && <Row className='operationpannel' gutter={16} type='flex' style={{ paddingBottom: '1em' }}>
