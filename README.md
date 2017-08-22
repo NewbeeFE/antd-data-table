@@ -15,7 +15,7 @@ Just focuse on:
 
 - Doing the data fetching request and return the data
 - Rendering a specific data field if needed
-- Writing plugin to operate one or many data object(s), by writing plugings
+- Writing plugin to operate one or many data object(s)
 
 ## Install
 
