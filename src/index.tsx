@@ -12,7 +12,7 @@ import {
 } from 'antd'
 import * as update from 'immutability-helper'
 import { TableColumnConfig } from 'antd/lib/table/Table'
-import { ColumnProps } from 'antd/lib/table/Column'
+import { ColumnProps } from 'antd/lib/table/Column' // tslint:disable-line
 import { PaginationProps } from 'antd/lib/pagination/Pagination'
 import { ValidationRule } from 'antd/lib/form/Form'
 import SearchField from './SearchField'
