@@ -2,7 +2,7 @@
 
 A component that combines antd's Table and Form to do the search, display, and operating jobs for data.
 
-![](https://ws3.sinaimg.cn/large/006tKfTcgy1fit061c12lj31kw0p2grj.jpg)
+![](https://ws3.sinaimg.cn/large/006tKfTcgy1fit07jdl4oj31kw0wi10y.jpg)
 
 ## Feature
 
