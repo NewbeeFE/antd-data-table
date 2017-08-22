@@ -78,6 +78,7 @@ export interface IDataTableProps {
   rowActions?: RowAction[],
   plugins?: Plugin[],
   rowKey: (record: any) => string,
+  title?: React.ReactNode,
   searchBtnText?: string,
   clearBtnText?: string,
   listSelectionBtnText?: string,
@@ -206,13 +207,22 @@ export class DataTable extends React.Component<IDataTableProps, IDataTableState>
   }
 
   tableTitle = (currentPageData) => {
-    return <Row type='flex' justify='end'>
-      <Col>
-        <Dropdown overlay={this.filterPannel} trigger={['click']}>
-          <Button size='small'>{this.props.listSelectionBtnText}</Button>
-        </Dropdown>
-      </Col>
-    </Row>
+    return (
+      <Row type='flex'>
+        <Col span={12}>
+          {this.props.title}
+        </Col>
+        <Col span={12}>
+          <Row type='flex' justify='end'>
+            <Col>
+              <Dropdown overlay={this.filterPannel} trigger={['click']}>
+                <Button size='small'>{this.props.listSelectionBtnText}</Button>
+              </Dropdown>
+            </Col>
+          </Row>
+        </Col>
+      </Row>
+    )
   }
 
   applyData = (data: any[]) => {
