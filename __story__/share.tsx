@@ -1,14 +1,9 @@
-import * as React from 'react'
-import { storiesOf } from '@storybook/react'
-
+import { message } from 'antd'
 import axios from 'axios'
-
+import { SearchInfo, SearchField } from '../src/index'
 import { TableColumnConfig } from 'antd/lib/table/Table'
 
-/** Import component */
-import { DataTable, SearchField, SearchInfo } from '../src'
-
-const onSearch = async (info: SearchInfo) => {
+export const onSearch = async (info: SearchInfo) => {
   const res = await axios.get('http://jsonplaceholder.typicode.com/posts', {
     params: {
       _page: info.page,
@@ -18,11 +13,15 @@ const onSearch = async (info: SearchInfo) => {
   })
   return {
     dataSource: res.data,
-    total: res.headers['x-total-count']
+    total: Number(res.headers['x-total-count'])
   }
 }
 
-const columns: TableColumnConfig<any>[] = [
+export const onError = (e) => {
+  message.error(e.message)
+}
+
+export const columns: TableColumnConfig<any>[] = [
   {
     key: 'id',
     title: 'ID',
@@ -34,7 +33,7 @@ const columns: TableColumnConfig<any>[] = [
   }
 ]
 
-const searchFields: SearchField[] = [
+export const searchFields: SearchField[] = [
   {
     label: 'ID',
     name: 'id',
@@ -76,16 +75,3 @@ const searchFields: SearchField[] = [
     }
   }
 ]
-
-storiesOf('DataTable', module)
-  .add('selectable', () => (
-    <div style={{ padding: '1em' }}>
-      <DataTable
-        rowKey={record => record.id}
-        searchFields={searchFields}
-        initialColumns={columns}
-        onSearch={onSearch}
-        pageSize={10}
-      />
-    </div>
-  ))

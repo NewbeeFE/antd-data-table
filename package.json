@@ -17,6 +17,7 @@
     "minor": "npm run pre-release && npm version minor"
   },
   "devDependencies": {
+    "@storybook/addon-options": "^3.2.4",
     "@storybook/addon-storyshots": "^3.2.5",
     "@storybook/react": "^3.2.5",
     "@types/enzyme": "^2.8.6",
@@ -34,10 +35,12 @@
     "jest": "^20.0.4",
     "less": "^2.7.2",
     "less-loader": "^4.0.5",
+    "raw-loader": "^0.5.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-test-renderer": "^15.6.1",
     "rimraf": "^2.6.1",
+    "storybook-readme": "^3.0.6",
     "style-loader": "^0.18.2",
     "ts-jest": "^20.0.10",
     "tslint": "^5.5.0",

@@ -77,9 +77,11 @@ export type Plugin = {
 
 /** Your component's props */
 export interface IDataTableProps {
+  name?: string,
   initialColumns: TableColumnConfig<any>[],
   searchFields: SearchField[],
   rowActions?: RowAction[],
+  enableListSelection?: boolean,
   plugins?: Plugin[],
   /** 表格行 key 的取值 */
   rowKey: (record: any) => string,
@@ -154,6 +156,8 @@ const renderActions = (actions: RowAction[], record) => {
 /** Your component */
 export class DataTable extends React.Component<IDataTableProps, IDataTableState> {
 
+  static storageKey = 'antd-data-table'
+
   static defaultProps = {
     pageSize: 10,
     searchBtnText: 'Search',
@@ -163,10 +167,16 @@ export class DataTable extends React.Component<IDataTableProps, IDataTableState>
 
   actionsColumn = this.props.rowActions && { key: 'actions', title: 'Actions', render: (record) => { return renderActions(this.props.rowActions as RowAction[], record) } } as TableColumnConfig<any>
 
+  shouldShowTableTitle = this.props.title || this.props.enableListSelection
+
   initialColumns = this.actionsColumn ? [...this.props.initialColumns, this.actionsColumn] : this.props.initialColumns
 
+  visibleColumnKeys = localStorage.getItem(`${DataTable.storageKey}-${this.props.name}-columnIds`)
+
+  visibleColumns = (this.props.enableListSelection === true) && this.visibleColumnKeys ? this.initialColumns.filter(column => (this.visibleColumnKeys as string).indexOf(column.key as string) !== -1) : this.initialColumns
+
   state = {
-    columns: [] = this.initialColumns,
+    columns: [] = this.visibleColumns,
     data: [],
     page: 1,
     pagination: {} as PaginationProps,
@@ -178,7 +188,7 @@ export class DataTable extends React.Component<IDataTableProps, IDataTableState>
   }
 
   filterPannel = (<Card bodyStyle={{ padding: '1em', width: '12em' }}>
-    {this.initialColumns.map(column => {
+    {this.props.initialColumns.map(column => {
       const isSelected = this.state.columns.find(c => c.key === column.key) !== undefined
       const onChange = (e) => {
         if (e.target.checked) {
@@ -194,6 +204,14 @@ export class DataTable extends React.Component<IDataTableProps, IDataTableState>
       )
     })}
   </Card>)
+
+  constructor (props) {
+    super(props)
+
+    if (this.props.enableListSelection && !this.props.name) {
+      console.warn('`name` is required while `enableListSelection` is true!')
+    }
+  }
 
   startTableLoading = () => {
     this.setState({ tableLoading: true })
@@ -212,22 +230,30 @@ export class DataTable extends React.Component<IDataTableProps, IDataTableState>
   }
 
   tableTitle = (currentPageData) => {
-    return (
-      <Row type='flex'>
-        <Col span={12}>
-          {this.props.title}
-        </Col>
-        <Col span={12}>
-          <Row type='flex' justify='end'>
-            <Col>
-              <Dropdown overlay={this.filterPannel} trigger={['click']}>
-                <Button size='small'>{this.props.listSelectionBtnText}</Button>
-              </Dropdown>
-            </Col>
-          </Row>
-        </Col>
-      </Row>
-    )
+    if (this.shouldShowTableTitle) {
+      return (
+        <Row type='flex'>
+          <Col span={12}>
+            {this.props.title}
+          </Col>
+          <Col span={12}>
+            <Row type='flex' justify='end'>
+              <Col>
+                {this.props.enableListSelection && (
+                  <Dropdown overlay={this.filterPannel} trigger={['click']}>
+                    <Button size='small'>{this.props.listSelectionBtnText}</Button>
+                  </Dropdown>
+                )}
+              </Col>
+            </Row>
+          </Col>
+        </Row>
+      )
+    }
+  }
+
+  saveVisibleColumnKeysToStorage = (columns: TableColumnConfig<any>[]) => {
+    localStorage.setItem(`${DataTable.storageKey}-${this.props.name}-columnIds`, columns.map(column => column.key).join(','))
   }
 
   applyData = (data: any[]) => {
@@ -283,9 +309,10 @@ export class DataTable extends React.Component<IDataTableProps, IDataTableState>
   hideColumn = (key?: string) => {
     this.state.columns.forEach((column, i) => {
       if (column.key === key) {
+        const columns = update(this.state.columns, { $splice: [[i, 1]] })
         this.setState({
-          columns: update(this.state.columns, { $splice: [[i, 1]] })
-        })
+          columns
+        }, () => this.saveVisibleColumnKeysToStorage(columns))
       }
     })
   }
@@ -300,9 +327,10 @@ export class DataTable extends React.Component<IDataTableProps, IDataTableState>
   showColumn = (key?: string) => {
     this.initialColumns.forEach((column, i) => {
       if (column.key === key) {
+        const columns = update(this.state.columns, { $splice: [[i, 0, column]] })
         this.setState({
-          columns: update(this.state.columns, { $splice: [[i, 0, column]] })
-        })
+          columns
+        }, () => this.saveVisibleColumnKeysToStorage(columns))
       }
     })
   }
@@ -336,7 +364,7 @@ export class DataTable extends React.Component<IDataTableProps, IDataTableState>
             <Table
               bordered
               size='middle'
-              title={this.tableTitle}
+              {...this.shouldShowTableTitle && {title: this.tableTitle}}
               rowSelection={rowSelection}
               rowKey={this.props.rowKey}
               loading={this.state.tableLoading}

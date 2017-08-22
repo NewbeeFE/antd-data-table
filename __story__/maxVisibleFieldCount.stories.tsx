@@ -8,54 +8,7 @@ import { TableColumnConfig } from 'antd/lib/table/Table'
 /** Import component */
 import { DataTable, SearchField, SearchInfo } from '../src'
 
-const onSearch = async (info: SearchInfo) => {
-  const res = await axios.get('http://jsonplaceholder.typicode.com/posts', {
-    params: {
-      _page: info.page,
-      _limit: info.pageSize,
-      ...info.values
-    }
-  })
-  return {
-    dataSource: res.data,
-    total: res.headers['x-total-count']
-  }
-}
-
-const columns: TableColumnConfig<any>[] = [
-  {
-    key: 'id',
-    title: 'ID',
-    dataIndex: 'id'
-  }, {
-    key: 'title',
-    title: 'Title',
-    dataIndex: 'title'
-  }
-]
-
-const searchFields: SearchField[] = [
-  {
-    label: 'ID',
-    name: 'id',
-    type: 'input'
-  },
-  {
-    label: 'Title',
-    name: 'title',
-    type: 'input'
-  },
-  {
-    label: 'Content',
-    name: 'body',
-    type: 'input'
-  },
-  {
-    label: 'Author',
-    name: 'author',
-    type: 'input'
-  }
-]
+import { searchFields, columns, onSearch, onError } from './share'
 
 storiesOf('DataTable', module)
   .add('maxVisibleFieldCount', () => (

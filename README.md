@@ -30,35 +30,6 @@ $ yarn add antd-data-table --save
 ```tsx
 import { DataTable } from 'antd-data-table'
 
-// do the searching request
-const onSearch = async (info: SearchInfo) => {
-  const res = await axios.get('http://jsonplaceholder.typicode.com/posts', {
-    params: {
-      _page: info.page,
-      _limit: info.pageSize,
-      ...info.values
-    }
-  })
-  return {
-    dataSource: res.data,
-    total: res.headers['x-total-count']
-  }
-}
-
-// render the column
-const columns: TableColumnConfig<any>[] = [
-  {
-    key: 'id',
-    title: 'ID',
-    dataIndex: 'id'
-  }, {
-    key: 'title',
-    title: 'Title',
-    dataIndex: 'title'
-  }
-]
-
-// declare the search form items
 const searchFields: SearchField[] = [
   {
     label: 'ID',
@@ -75,9 +46,6 @@ const searchFields: SearchField[] = [
     name: 'select',
     type: 'select',
     payload: {
-      props: {
-        allowClear: true
-      },
       options: [
         { key: '1', label: 'one', value: '1' },
         { key: '2', label: 'two', value: '2' },
@@ -87,6 +55,31 @@ const searchFields: SearchField[] = [
   }
 ]
 
+const columns: TableColumnConfig<any>[] = [
+  {
+    key: 'id',
+    title: 'ID',
+    dataIndex: 'id'
+  }, {
+    key: 'title',
+    title: 'Title',
+    dataIndex: 'title'
+  }
+]
+
+const onSearch = async ({ page, pageSize, values }) => {
+  const res = await axios.get('http://jsonplaceholder.typicode.com/posts', {
+    params: {
+      _page: page,
+      _limit: pageSize,
+      ...values
+    }
+  })
+  return {
+    dataSource: res.data,
+    total: Number(res.headers['x-total-count'])
+  }
+}
 render(
   <DataTable
     rowKey={record => record.id}
@@ -98,28 +91,6 @@ render(
 ```
 
 ## Guide
-
-### Do searching
-
-`onSearch` property need a function that return a Promise, which resolves an object that contains `total` and `dataSource`. This function receive some info you nedd. For example:
-
-```js
-const onSearch = async (info: SearchInfo) => {
-  const res = await axios.get('http://jsonplaceholder.typicode.com/posts', {
-    params: {
-      _page: info.page,
-      _limit: info.pageSize,
-      ...info.values
-    }
-  })
-  return {
-    dataSource: res.data,
-    total: res.headers['x-total-count']
-  }
-}
-```
-
-`info` params contains pagination info (`page, pageSize`), and the search form values (from `getFieldsValue()`).
 
 ### Collapsable search field
 
@@ -221,6 +192,10 @@ render (
 
 ## Props
 
+### name?: string
+
+Unique table name.
+
 ### `rowKey`: (record) => string
 
 The `key` value of a row. 
@@ -283,6 +258,12 @@ default is 10
 ### `plugins?: Plugin[]`
 
 ### `rowActions?: RowAction[]`
+
+### enableListSelection?: boolean
+
+If `true`, a list selection button will display on table title.
+
+*Be sure to pass the `name` props if it is enable.*
 
 # License
 

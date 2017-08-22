@@ -139,7 +139,6 @@ ShallowWrapper {
                 }
                 showHeader={true}
                 size="middle"
-                title={[Function]}
                 useFixedHeader={false}
             />
         </Row>
@@ -277,7 +276,6 @@ ShallowWrapper {
                         }
                         showHeader={true}
                         size="middle"
-                        title={[Function]}
                         useFixedHeader={false}
                   />
             </Row>
@@ -534,6 +532,8 @@ ShallowWrapper {
           ],
         },
         "refs": Object {},
+        "saveVisibleColumnKeysToStorage": [Function],
+        "shouldShowTableTitle": undefined,
         "showColumn": [Function],
         "startSearchButtonLoading": [Function],
         "startTableLoading": [Function],
@@ -572,6 +572,19 @@ ShallowWrapper {
           "isMounted": [Function],
           "validateCallback": [Function],
         },
+        "visibleColumnKeys": undefined,
+        "visibleColumns": Array [
+          Object {
+            "dataIndex": "id",
+            "key": "id",
+            "title": "ID",
+          },
+          Object {
+            "dataIndex": "title",
+            "key": "title",
+            "title": "Title",
+          },
+        ],
       },
       "_mountOrder": 1,
       "_pendingCallbacks": null,
@@ -711,7 +724,6 @@ ShallowWrapper {
                                         }
                                         showHeader={true}
                                         size="middle"
-                                        title={[Function]}
                                         useFixedHeader={false}
                               />
                     </Row>
@@ -849,7 +861,6 @@ ShallowWrapper {
                                         }
                                         showHeader={true}
                                         size="middle"
-                                        title={[Function]}
                                         useFixedHeader={false}
                               />
                     </Row>
