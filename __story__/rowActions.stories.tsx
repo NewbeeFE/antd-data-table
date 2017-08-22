@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
+import withReadme from 'storybook-readme/with-readme'
 
 import axios from 'axios'
 
@@ -38,7 +39,8 @@ const actions: RowAction[] = [
 ]
 
 storiesOf('DataTable', module)
-  .add('actions', () => (
+  .addDecorator(withReadme(require('./rowActions.md')))
+  .add('rowActions', () => (
     <div style={{ padding: '1em' }}>
       <DataTable
         rowKey={record => record.id}

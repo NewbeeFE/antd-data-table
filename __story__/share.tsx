@@ -73,5 +73,15 @@ export const searchFields: SearchField[] = [
         { key: '3', label: 'three', value: '3' }
       ]
     }
+  },
+  {
+    label: 'Foo',
+    name: 'foo',
+    type: 'input'
+  },
+  {
+    label: 'Bar',
+    name: 'bar',
+    type: 'input'
   }
 ]

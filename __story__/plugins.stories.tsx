@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
+import withReadme from 'storybook-readme/with-readme'
 import { action } from '@storybook/addon-actions'
 import {
   Button
@@ -40,6 +41,7 @@ const plugins: Plugin[] = [
 ]
 
 storiesOf('DataTable', module)
+  .addDecorator(withReadme(require('./plugins.md')))
   .add('plugins', () => (
     <div style={{ padding: '1em' }}>
       <DataTable

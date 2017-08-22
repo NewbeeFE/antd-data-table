@@ -7,7 +7,10 @@
     "experimentalDecorators": true,
     "declaration": true,
     "allowSyntheticDefaultImports": true,
-    "rootDir": "src",
+    "rootDirs": [
+      "src",
+      "__story__"
+    ],
     "outDir": "dist",
     "lib": [
       "es5",

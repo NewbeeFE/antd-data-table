@@ -165,17 +165,19 @@ Plugins are for operating multiple records. Every plugin will render a component
 Let's write a simplest plugin: A button that show current selected rows' ids:
 
 ```tsx
-const ShowIdsBtn = ({ selectedRows }) => {
+const ShowIdsBtn = ({ selectedRows, clearSelection }) => {
   const showIds = () => {
     message.info(selectedRows.map(row => row.id).join(','))
+    // clear selection after the action is done
+    clearSelection()
   }
 
   return <Button onClick={showIds}>Show Ids</Button>
 }
 
 const plugins = [
-  renderer (selectedRowKeys, selectedRows) {
-    return <ShowIdsBtn selectedRows={selectedRows} />
+  renderer (selectedRowKeys, selectedRows, clearSelection) {
+    return <ShowIdsBtn selectedRows={selectedRows} clearSelection={clearSelection} />
   }
 ]
 
@@ -213,8 +215,26 @@ SearchField is an object that contains:
 
 #### out of the box render type
 
-- input
-- select
+##### input
+
+```ts
+interface payload {
+  props: object
+}
+```
+
+##### select
+
+```ts
+interface payload {
+  props: object,
+  options: {
+    key: string,
+    label: string,
+    value: string
+  }[]
+}
+```
 
 ### `initialColumns: TableColumnConfig[]`
 
