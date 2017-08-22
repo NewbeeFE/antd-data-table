@@ -285,6 +285,20 @@ If `true`, a list selection button will display on table title.
 
 *Be sure to pass the `name` props if it is enable.*
 
+## Build
+
+```bash
+$ yarn
+
+$ yarn start # start the storybook
+
+$ yarn test # run the test
+
+$ yarn run build # build the distribution file
+
+$ yarn run build:storybook # build storybook
+```
+
 # License
 
 MIT License
