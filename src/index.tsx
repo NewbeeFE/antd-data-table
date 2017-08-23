@@ -188,7 +188,7 @@ export class DataTable extends React.Component<IDataTableProps, IDataTableState>
   }
 
   filterPannel = (<Card bodyStyle={{ padding: '1em', width: '12em' }}>
-    {this.props.initialColumns.map(column => {
+    {this.initialColumns.map(column => {
       const isSelected = this.state.columns.find(c => c.key === column.key) !== undefined
       const onChange = (e) => {
         if (e.target.checked) {

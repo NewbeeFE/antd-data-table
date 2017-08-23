@@ -1,6 +1,8 @@
-import { message } from 'antd'
+import * as React from 'react'
+import { message, Button } from 'antd'
 import axios from 'axios'
-import { SearchInfo, SearchField } from '../src/index'
+import { action } from '@storybook/addon-actions'
+import { SearchInfo, SearchField, Plugin, RowAction } from '../src/index'
 import { TableColumnConfig } from 'antd/lib/table/Table'
 
 export const onSearch = async (info: SearchInfo) => {
@@ -83,5 +85,56 @@ export const searchFields: SearchField[] = [
     label: 'Bar',
     name: 'bar',
     type: 'input'
+  }
+]
+
+export const plugins: Plugin[] = [
+  {
+    renderer (selectedRowKeys, selectedRows, clearSelectionCallback) {
+      const onClick = () => {
+        action('onClick test plugin')(selectedRowKeys)
+        clearSelectionCallback()
+      }
+      return (
+        <Button onClick={onClick}>Plugin A</Button>
+      )
+    }
+  },
+  {
+    renderer (selectedRowKeys, selectedRows, clearSelectionCallback) {
+      const onClick = () => {
+        action('onClick test plugin')(selectedRowKeys)
+        clearSelectionCallback()
+      }
+      return (
+        <Button onClick={onClick}>Plugin 2</Button>
+      )
+    }
+  }
+]
+
+export const actions: RowAction[] = [
+  {
+    label: 'Edit',
+    action (record) {
+      action('onClick edit')(record)
+    }
+  },
+  {
+    label: 'More',
+    children: [
+      {
+        label: 'Remove',
+        action (record) {
+          action('onClick remove')(record)
+        }
+      },
+      {
+        label: 'Open',
+        action (record) {
+          action('onClick open')(record)
+        }
+      }
+    ]
   }
 ]
