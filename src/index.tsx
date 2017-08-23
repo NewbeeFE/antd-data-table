@@ -165,15 +165,15 @@ export class DataTable extends React.Component<IDataTableProps, IDataTableState>
     listSelectionBtnText: 'List selection'
   }
 
-  actionsColumn = this.props.rowActions && { key: 'actions', title: 'Actions', render: (record) => { return renderActions(this.props.rowActions as RowAction[], record) } } as TableColumnConfig<any>
+  readonly actionsColumn = this.props.rowActions && { key: 'actions', title: 'Actions', render: (record) => { return renderActions(this.props.rowActions as RowAction[], record) } } as TableColumnConfig<any>
 
-  shouldShowTableTitle = this.props.title || this.props.enableListSelection
+  readonly shouldShowTableTitle = this.props.title || this.props.enableListSelection
 
-  initialColumns = this.actionsColumn ? [...this.props.initialColumns, this.actionsColumn] : this.props.initialColumns
+  readonly initialColumns = this.actionsColumn ? [...this.props.initialColumns, this.actionsColumn] : this.props.initialColumns
 
-  visibleColumnKeys = localStorage.getItem(`${DataTable.storageKey}-${this.props.name}-columnIds`)
+  readonly visibleColumnKeys = localStorage.getItem(`${DataTable.storageKey}-${this.props.name}-columnIds`)
 
-  visibleColumns = (this.props.enableListSelection === true) && this.visibleColumnKeys ? this.initialColumns.filter(column => (this.visibleColumnKeys as string).indexOf(column.key as string) !== -1) : this.initialColumns
+  readonly visibleColumns = (this.props.enableListSelection === true) && this.visibleColumnKeys ? this.initialColumns.filter(column => (this.visibleColumnKeys as string).indexOf(column.key as string) !== -1) : this.initialColumns
 
   state = {
     columns: [] = this.visibleColumns,
