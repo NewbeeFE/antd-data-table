@@ -5,6 +5,7 @@
   "files": [
     "dist"
   ],
+  "types": "dist/index.d.ts",
   "scripts": {
     "start": "start-storybook -c .storybook -p 9001",
     "test": "jest",
