@@ -1,20 +1,19 @@
 {
   "name": "antd-data-table",
   "version": "0.1.1",
-  "main": "dist/DataTable.js",
+  "main": "lib/index.js",
   "files": [
-    "dist"
+    "lib"
   ],
-  "types": "dist/index.d.ts",
+  "types": "lib/index.d.ts",
   "scripts": {
     "start": "start-storybook -c .storybook -p 9001",
     "test": "jest",
     "cov": "npm test -- --coverage",
     "lint": "tslint 'src/**/*.ts?(x)' --type-check --project tsconfig.json",
-    "build": "CHOPPING=build webpack --config ./.storybook/webpack.config.js",
-    "tsc": "tsc",
+    "build": "tsc",
     "build:storybook": "build-storybook -c .storybook -o docs",
-    "pre-release": "npm run lint && npm test && rimraf dist && npm run build && npm run build:storybook",
+    "pre-release": "npm run lint && npm test && rimraf lib && npm run build && npm run build:storybook",
     "patch": "npm run pre-release && npm version patch",
     "minor": "npm run pre-release && npm version minor"
   },
@@ -51,6 +50,9 @@
     "typescript": "^2.4.2",
     "webpack": "^3.5.5"
   },
+  "dependencies": {
+    "immutability-helper": "^2.3.1"
+  },
   "peerDependencies": {
     "antd": "^2.x",
     "react": "^15.x"
@@ -69,13 +71,5 @@
       "jsx"
     ]
   },
-  "proxy": {},
-  "external": [
-    "react",
-    "antd",
-    "immutability-helper"
-  ],
-  "dependencies": {
-    "immutability-helper": "^2.3.1"
-  }
+  "proxy": {}
 }

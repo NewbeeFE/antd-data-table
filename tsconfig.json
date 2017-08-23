@@ -11,7 +11,7 @@
       "src",
       "__story__"
     ],
-    "outDir": "dist",
+    "outDir": "lib",
     "lib": [
       "es5",
       "es2015",
