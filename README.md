@@ -126,7 +126,7 @@ We usually need to write some action buttons for operating a specific record. `a
 [Demo](https://newbeefe.github.io/antd-data-table/?selectedKind=DataTable&selectedStory=rowActions)
 
 ```tsx
-import { RowAction } from 'antd-data-table'
+import { DataTable, RowAction } from 'antd-data-table'
 import { action } from '@storybook/addon-actions'
 const actions: RowAction[] = [
   {
