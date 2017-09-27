@@ -96,6 +96,8 @@ export interface IDataTableProps {
   pageSize?: number,
   /** handle form validate error */
   onValidateFailed?: (err: ValidateError) => void,
+  /** 页面加载完成后是否立即加载数据 */
+  loadDataImmediately?: boolean,
   /** 执行 search 动作，返回一个 AxiosPromis */
   onSearch<T> (info: SearchInfo): Promise<SearchResponse<T>>,
   /** reject handler */
