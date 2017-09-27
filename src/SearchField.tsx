@@ -6,16 +6,20 @@ import {
   Col,
   Icon
 } from 'antd'
-import { WrappedFormUtils } from 'antd/lib/form/Form'
+import { WrappedFormUtils, FormComponentProps } from 'antd/lib/form/Form' // tslint:disable-line
 import { IDataTableProps, SearchFunc } from './'
 const FormItem = Form.Item
 
 import InputRenderer from './renderer/input'
 import SelectRenderer from './renderer/select'
+import DatePickerRenderer from './renderer/datePicker'
+import TreeSelectRenderer from './renderer/treeSelect'
 
 const comesWithRenderer = {
   input: InputRenderer,
-  select: SelectRenderer
+  select: SelectRenderer,
+  datePicker: DatePickerRenderer,
+  treeSelect: TreeSelectRenderer
 }
 
 /** Your component's props */
@@ -78,7 +82,7 @@ export class SearchField extends React.Component<ISearchFieldProps, ISearchField
       return (
         <Col span={6} key={i} style={this.shouldHandleCollapse ? { display: i < count ? 'block' : 'none' } : { display: 'block' }}>
           <FormItem {...formItemLayout} label={searchField.label}>
-            {getFieldDecorator(searchField.name, { rules: searchField.validationRule })(
+            {getFieldDecorator(searchField.name, { rules: searchField.validationRule, initialValue: searchField.initialValue })(
               renderComponent()
             )}
           </FormItem>

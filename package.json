@@ -1,6 +1,6 @@
 {
   "name": "antd-data-table",
-  "version": "0.1.2",
+  "version": "0.1.5",
   "main": "lib/index.js",
   "files": [
     "lib"
@@ -13,7 +13,7 @@
     "lint": "tslint 'src/**/*.ts?(x)' --type-check --project tsconfig.json",
     "build": "tsc",
     "build:storybook": "build-storybook -c .storybook -o docs",
-    "pre-release": "npm run lint && npm test && rimraf lib && npm run build && npm run build:storybook",
+    "pre-release": "npm run lint && npm test && npm run build:storybook && rimraf lib && npm run build",
     "patch": "npm run pre-release && npm version patch",
     "minor": "npm run pre-release && npm version minor"
   },
@@ -61,6 +61,9 @@
     "transform": {
       "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
+    "collectCoverageFrom": [
+      "src/**/*.{ts,tsx}"
+    ],
     "setupTestFrameworkScriptFile": "./test/setup.ts",
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(tsx?|jsx?)$",
     "moduleFileExtensions": [

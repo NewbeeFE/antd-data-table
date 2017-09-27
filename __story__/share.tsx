@@ -6,12 +6,13 @@ import { SearchInfo, SearchField, Plugin, RowAction } from '../src/index'
 import { TableColumnConfig } from 'antd/lib/table/Table'
 
 export const onSearch = async (info: SearchInfo) => {
+  const params = {
+    _page: info.page,
+    _limit: info.pageSize,
+    ...info.values
+  }
   const res = await axios.get('//jsonplaceholder.typicode.com/posts', {
-    params: {
-      _page: info.page,
-      _limit: info.pageSize,
-      ...info.values
-    }
+    params
   })
   return {
     dataSource: res.data,
@@ -50,6 +51,7 @@ export const searchFields: SearchField[] = [
     label: 'Select',
     name: 'select',
     type: 'select',
+    initialValue: '1',
     payload: {
       props: {
         allowClear: true
@@ -77,6 +79,41 @@ export const searchFields: SearchField[] = [
     }
   },
   {
+    label: 'Date Picker',
+    name: 'datePicker',
+    type: 'datePicker',
+    payload: {
+
+    }
+  },
+  {
+    label: 'Tree Select',
+    name: 'treeselect',
+    type: 'treeSelect',
+    payload: {
+      props: {
+        treeData: [{
+          label: 'Node1',
+          value: '0-0',
+          key: '0-0',
+          children: [{
+            label: 'Child Node1',
+            value: '0-0-1',
+            key: '0-0-1'
+          }, {
+            label: 'Child Node2',
+            value: '0-0-2',
+            key: '0-0-2'
+          }]
+        }, {
+          label: 'Node2',
+          value: '0-1',
+          key: '0-1'
+        }]
+      }
+    }
+  },
+  {
     label: 'Foo',
     name: 'foo',
     type: 'input'
@@ -90,7 +127,7 @@ export const searchFields: SearchField[] = [
 
 export const plugins: Plugin[] = [
   {
-    renderer (selectedRowKeys, selectedRows, clearSelectionCallback) {
+    renderer(selectedRowKeys, selectedRows, clearSelectionCallback) {
       const onClick = () => {
         action('onClick test plugin')(selectedRowKeys)
         clearSelectionCallback()
@@ -101,7 +138,7 @@ export const plugins: Plugin[] = [
     }
   },
   {
-    renderer (selectedRowKeys, selectedRows, clearSelectionCallback) {
+    renderer(selectedRowKeys, selectedRows, clearSelectionCallback) {
       const onClick = () => {
         action('onClick test plugin')(selectedRowKeys)
         clearSelectionCallback()
@@ -116,7 +153,7 @@ export const plugins: Plugin[] = [
 export const actions: RowAction[] = [
   {
     label: 'Edit',
-    action (record) {
+    action(record) {
       action('onClick edit')(record)
     }
   },
@@ -125,13 +162,13 @@ export const actions: RowAction[] = [
     children: [
       {
         label: 'Remove',
-        action (record) {
+        action(record) {
           action('onClick remove')(record)
         }
       },
       {
         label: 'Open',
-        action (record) {
+        action(record) {
           action('onClick open')(record)
         }
       }

@@ -41,7 +41,7 @@ export type SearchResponse<T> = {
 
 export type FieldRenderer = (payload?: object) => React.ReactNode
 
-export type RendererType = 'input' | 'select'
+export type RendererType = 'input' | 'select' | 'datePicker' | 'treeSelect'
 
 export type SearchField = {
   /** 条件名称 */
@@ -54,6 +54,8 @@ export type SearchField = {
   renderer?: FieldRenderer,
   /** antd 的表单验证规则 */
   validationRule?: ValidationRule[],
+  /** 初始值 */
+  initialValue?: any,
   /** 传给渲染的组件的参数 */
   payload?: SearchFieldPayload
 }
