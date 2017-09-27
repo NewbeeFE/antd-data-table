@@ -21,6 +21,7 @@ storiesOf('DataTable', module)
         searchFields={searchFields}
         initialColumns={columns}
         onSearch={onSearch}
+        loadDataImmediately={true}
       />
     </div>
   ))
