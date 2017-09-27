@@ -6,7 +6,7 @@ import {
   Col,
   Icon
 } from 'antd'
-import { WrappedFormUtils, FormComponentProps } from 'antd/lib/form/Form'
+import { WrappedFormUtils, FormComponentProps } from 'antd/lib/form/Form' // tslint:disable-line
 import { IDataTableProps, SearchFunc } from './'
 const FormItem = Form.Item
 
