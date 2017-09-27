@@ -57,6 +57,7 @@ exports[`DataTable should render correctly 1`] = `
                   className="ant-input ant-input-lg"
                   data-__meta={
                     Object {
+                      "initialValue": undefined,
                       "leadingName": "id",
                       "name": "id",
                       "originalProps": Object {
@@ -115,7 +116,7 @@ exports[`DataTable should render correctly 1`] = `
               className="ant-col-16 ant-form-item-control-wrapper"
             >
               <div
-                className="ant-form-item-control "
+                className="ant-form-item-control has-success"
               >
                 <div
                   className="ant-select-lg ant-select ant-select-enabled ant-select-allow-clear"
@@ -140,7 +141,20 @@ exports[`DataTable should render correctly 1`] = `
                   >
                     <div
                       className="ant-select-selection__rendered"
-                    />
+                    >
+                      <div
+                        className="ant-select-selection-selected-value"
+                        style={
+                          Object {
+                            "display": "block",
+                            "opacity": 1,
+                          }
+                        }
+                        title="one"
+                      >
+                        one
+                      </div>
+                    </div>
                     <span
                       className="ant-select-selection__clear"
                       onClick={[Function]}
@@ -148,7 +162,7 @@ exports[`DataTable should render correctly 1`] = `
                       style={
                         Object {
                           "WebkitUserSelect": "none",
-                          "display": "none",
+                          "display": "block",
                           "userSelect": "none",
                         }
                       }
@@ -438,6 +452,7 @@ exports[`DataTable should render correctly 1`] = `
                   className="ant-input ant-input-lg"
                   data-__meta={
                     Object {
+                      "initialValue": undefined,
                       "leadingName": "foo",
                       "name": "foo",
                       "originalProps": Object {
@@ -500,6 +515,7 @@ exports[`DataTable should render correctly 1`] = `
                   className="ant-input ant-input-lg"
                   data-__meta={
                     Object {
+                      "initialValue": undefined,
                       "leadingName": "bar",
                       "name": "bar",
                       "originalProps": Object {
