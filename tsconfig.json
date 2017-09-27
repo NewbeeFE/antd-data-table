@@ -24,6 +24,7 @@
     "src"
   ],
   "exclude": [
+    "__story__",
     "node_modules"
   ]
 }
