@@ -77,6 +77,14 @@ export const searchFields: SearchField[] = [
     }
   },
   {
+    label: 'Date Picker',
+    name: 'datePicker',
+    type: 'datePicker',
+    payload: {
+
+    }
+  },
+  {
     label: 'Foo',
     name: 'foo',
     type: 'input'

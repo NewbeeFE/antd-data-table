@@ -226,7 +226,15 @@ SearchField is an object that contains:
 
 ```ts
 interface payload {
-  props: object
+  props: object // antd Input props
+}
+```
+
+#### datePicker
+
+```ts
+interface payload {
+  props: object // antd DatePicker props
 }
 ```
 
@@ -234,7 +242,7 @@ interface payload {
 
 ```ts
 interface payload {
-  props: object,
+  props: object, // antd Select props
   options: {
     key: string,
     label: string,

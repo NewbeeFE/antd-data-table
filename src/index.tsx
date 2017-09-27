@@ -41,7 +41,7 @@ export type SearchResponse<T> = {
 
 export type FieldRenderer = (payload?: object) => React.ReactNode
 
-export type RendererType = 'input' | 'select'
+export type RendererType = 'input' | 'select' | 'datePicker'
 
 export type SearchField = {
   /** 条件名称 */

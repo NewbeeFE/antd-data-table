@@ -6,16 +6,18 @@ import {
   Col,
   Icon
 } from 'antd'
-import { WrappedFormUtils } from 'antd/lib/form/Form'
+import { WrappedFormUtils, FormComponentProps } from 'antd/lib/form/Form'
 import { IDataTableProps, SearchFunc } from './'
 const FormItem = Form.Item
 
 import InputRenderer from './renderer/input'
 import SelectRenderer from './renderer/select'
+import DatePickerRenderer from './renderer/datePicker'
 
 const comesWithRenderer = {
   input: InputRenderer,
-  select: SelectRenderer
+  select: SelectRenderer,
+  datePicker: DatePickerRenderer
 }
 
 /** Your component's props */
