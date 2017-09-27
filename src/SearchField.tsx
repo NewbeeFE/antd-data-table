@@ -44,6 +44,11 @@ export class SearchField extends React.Component<ISearchFieldProps, ISearchField
 
   private shouldHandleCollapse = this.props.maxVisibleFieldCount && this.props.searchFields.length > this.props.maxVisibleFieldCount
 
+  componentDidMount () {
+    if (this.props.loadDataImmediately) {
+      this.onSearch()
+    }
+  }
   toggleExpand = () => {
     const { expand } = this.state
     this.setState({ expand: !expand })

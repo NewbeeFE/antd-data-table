@@ -291,6 +291,10 @@ type SearchInfo = {
 
 Error handler that trigger when onSearch throw error.
 
+### `loadDataImmediately?: boolean`
+
+Load list data immediately, default is false
+
 ### `onValidateFailed?: (err: ValidateError) => void`
 
 Form validation failed handler
