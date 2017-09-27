@@ -1,970 +1,710 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DataTable should render correctly 1`] = `
-ShallowWrapper {
-  "complexSelector": ComplexSelector {
-    "buildPredicate": [Function],
-    "childrenOfNode": [Function],
-    "findWhereUnwrapped": [Function],
-  },
-  "length": 1,
-  "node": <div>
-    <div>
-        <Form(WrappedComponent)
-            btnLoading={false}
-            clearBtnText="Clear"
-            fetch={[Function]}
-            initialColumns={
-                Array [
-                    Object {
-                      "dataIndex": "id",
-                      "key": "id",
-                      "title": "ID",
-                    },
-                    Object {
-                      "dataIndex": "title",
-                      "key": "title",
-                      "title": "Title",
-                    },
-                  ]
-            }
-            listSelectionBtnText="List selection"
-            onSearch={[Function]}
-            pageSize={10}
-            searchBtnText="Search"
-            searchFields={
-                Array [
-                    Object {
-                      "label": "ID",
-                      "name": "id",
-                      "payload": Object {
-                        "props": Object {
-                          "placeholder": "placeholder",
-                        },
-                      },
-                      "type": "input",
-                    },
-                    Object {
-                      "label": "Select",
-                      "name": "select",
-                      "payload": Object {
-                        "options": Array [
-                          Object {
-                            "key": "1",
-                            "label": "one",
-                            "value": "1",
-                          },
-                          Object {
-                            "key": "2",
-                            "label": "two",
-                            "value": "2",
-                          },
-                          Object {
-                            "key": "3",
-                            "label": "three",
-                            "value": "3",
-                          },
-                        ],
-                        "props": Object {
-                          "allowClear": true,
-                        },
-                      },
-                      "type": "select",
-                    },
-                    Object {
-                      "label": "Multi Select",
-                      "name": "multi-select",
-                      "payload": Object {
-                        "options": Array [
-                          Object {
-                            "key": "1",
-                            "label": "one",
-                            "value": "1",
-                          },
-                          Object {
-                            "key": "2",
-                            "label": "two",
-                            "value": "2",
-                          },
-                          Object {
-                            "key": "3",
-                            "label": "three",
-                            "value": "3",
-                          },
-                        ],
-                        "props": Object {
-                          "mode": "multiple",
-                        },
-                      },
-                      "type": "select",
-                    },
-                  ]
-            }
-        />
-    </div>
-    <div>
-        <Row
-            gutter={0}
-        >
-            <Table
-                bordered={true}
-                className=""
-                columns={
-                    Array [
-                        Object {
-                          "dataIndex": "id",
-                          "key": "id",
-                          "title": "ID",
-                        },
-                        Object {
-                          "dataIndex": "title",
-                          "key": "title",
-                          "title": "Title",
-                        },
-                      ]
-                }
-                dataSource={Array []}
-                indentSize={20}
-                loading={false}
-                locale={Object {}}
-                onChange={[Function]}
-                pagination={Object {}}
-                prefixCls="ant-table"
-                rowKey="key"
-                rowSelection={
-                    Object {
-                        "onChange": [Function],
-                        "selectedRowKeys": Array [],
-                      }
-                }
-                showHeader={true}
-                size="middle"
-                useFixedHeader={false}
-            />
-        </Row>
-    </div>
-</div>,
-  "nodes": Array [
-    <div>
-      <div>
-            <Form(WrappedComponent)
-                  btnLoading={false}
-                  clearBtnText="Clear"
-                  fetch={[Function]}
-                  initialColumns={
-                        Array [
-                              Object {
-                                "dataIndex": "id",
-                                "key": "id",
-                                "title": "ID",
-                              },
-                              Object {
-                                "dataIndex": "title",
-                                "key": "title",
-                                "title": "Title",
-                              },
-                            ]
-                  }
-                  listSelectionBtnText="List selection"
-                  onSearch={[Function]}
-                  pageSize={10}
-                  searchBtnText="Search"
-                  searchFields={
-                        Array [
-                              Object {
-                                "label": "ID",
-                                "name": "id",
-                                "payload": Object {
-                                  "props": Object {
-                                    "placeholder": "placeholder",
-                                  },
-                                },
-                                "type": "input",
-                              },
-                              Object {
-                                "label": "Select",
-                                "name": "select",
-                                "payload": Object {
-                                  "options": Array [
-                                    Object {
-                                      "key": "1",
-                                      "label": "one",
-                                      "value": "1",
-                                    },
-                                    Object {
-                                      "key": "2",
-                                      "label": "two",
-                                      "value": "2",
-                                    },
-                                    Object {
-                                      "key": "3",
-                                      "label": "three",
-                                      "value": "3",
-                                    },
-                                  ],
-                                  "props": Object {
-                                    "allowClear": true,
-                                  },
-                                },
-                                "type": "select",
-                              },
-                              Object {
-                                "label": "Multi Select",
-                                "name": "multi-select",
-                                "payload": Object {
-                                  "options": Array [
-                                    Object {
-                                      "key": "1",
-                                      "label": "one",
-                                      "value": "1",
-                                    },
-                                    Object {
-                                      "key": "2",
-                                      "label": "two",
-                                      "value": "2",
-                                    },
-                                    Object {
-                                      "key": "3",
-                                      "label": "three",
-                                      "value": "3",
-                                    },
-                                  ],
-                                  "props": Object {
-                                    "mode": "multiple",
-                                  },
-                                },
-                                "type": "select",
-                              },
-                            ]
-                  }
-            />
-      </div>
-      <div>
-            <Row
-                  gutter={0}
-            >
-                  <Table
-                        bordered={true}
-                        className=""
-                        columns={
-                              Array [
-                                    Object {
-                                      "dataIndex": "id",
-                                      "key": "id",
-                                      "title": "ID",
-                                    },
-                                    Object {
-                                      "dataIndex": "title",
-                                      "key": "title",
-                                      "title": "Title",
-                                    },
-                                  ]
-                        }
-                        dataSource={Array []}
-                        indentSize={20}
-                        loading={false}
-                        locale={Object {}}
-                        onChange={[Function]}
-                        pagination={Object {}}
-                        prefixCls="ant-table"
-                        rowKey="key"
-                        rowSelection={
-                              Object {
-                                    "onChange": [Function],
-                                    "selectedRowKeys": Array [],
-                                  }
-                        }
-                        showHeader={true}
-                        size="middle"
-                        useFixedHeader={false}
-                  />
-            </Row>
-      </div>
-</div>,
-  ],
-  "options": Object {},
-  "renderer": ReactShallowRenderer {
-    "_instance": ShallowComponentWrapper {
-      "_calledComponentWillUnmount": false,
-      "_compositeType": 0,
-      "_context": Object {},
-      "_currentElement": <DataTable
-        clearBtnText="Clear"
-        initialColumns={
-                Array [
-                        Object {
-                          "dataIndex": "id",
-                          "key": "id",
-                          "title": "ID",
-                        },
-                        Object {
-                          "dataIndex": "title",
-                          "key": "title",
-                          "title": "Title",
-                        },
-                      ]
+<div>
+  <div>
+    <form
+      className="ant-form ant-form-horizontal ant-advanced-search-form"
+      onSubmit={[Function]}
+      style={
+        Object {
+          "marginBottom": "1em",
         }
-        listSelectionBtnText="List selection"
-        onSearch={[Function]}
-        pageSize={10}
-        searchBtnText="Search"
-        searchFields={
-                Array [
-                        Object {
-                          "label": "ID",
-                          "name": "id",
-                          "payload": Object {
-                            "props": Object {
-                              "placeholder": "placeholder",
-                            },
-                          },
-                          "type": "input",
-                        },
-                        Object {
-                          "label": "Select",
-                          "name": "select",
-                          "payload": Object {
-                            "options": Array [
-                              Object {
-                                "key": "1",
-                                "label": "one",
-                                "value": "1",
-                              },
-                              Object {
-                                "key": "2",
-                                "label": "two",
-                                "value": "2",
-                              },
-                              Object {
-                                "key": "3",
-                                "label": "three",
-                                "value": "3",
-                              },
-                            ],
-                            "props": Object {
-                              "allowClear": true,
-                            },
-                          },
-                          "type": "select",
-                        },
-                        Object {
-                          "label": "Multi Select",
-                          "name": "multi-select",
-                          "payload": Object {
-                            "options": Array [
-                              Object {
-                                "key": "1",
-                                "label": "one",
-                                "value": "1",
-                              },
-                              Object {
-                                "key": "2",
-                                "label": "two",
-                                "value": "2",
-                              },
-                              Object {
-                                "key": "3",
-                                "label": "three",
-                                "value": "3",
-                              },
-                            ],
-                            "props": Object {
-                              "mode": "multiple",
-                            },
-                          },
-                          "type": "select",
-                        },
-                      ]
-        }
-/>,
-      "_debugID": 1,
-      "_hostContainerInfo": null,
-      "_hostParent": null,
-      "_instance": DataTable {
-        "_reactInternalInstance": [Circular],
-        "actionsColumn": undefined,
-        "applyData": [Function],
-        "applyValues": [Function],
-        "clearPagination": [Function],
-        "clearSelection": [Function],
-        "context": Object {},
-        "fetch": [Function],
-        "filterPannel": <Card
-          bodyStyle={
-                    Object {
-                              "padding": "1em",
-                              "width": "12em",
-                            }
+      }
+    >
+      <div
+        className="ant-row"
+        style={
+          Object {
+            "marginLeft": -20,
+            "marginRight": -20,
           }
->
-          <p
-                    style={
-                              Object {
-                                        "marginBottom": ".5em",
-                                        "marginTop": ".5em",
-                                      }
-                    }
+        }
+      >
+        <div
+          className="ant-col-6"
+          style={
+            Object {
+              "display": "block",
+              "paddingLeft": 20,
+              "paddingRight": 20,
+            }
+          }
+        >
+          <div
+            className="ant-row ant-form-item"
+            style={undefined}
           >
-                    <Checkbox
-                              defaultChecked={true}
-                              indeterminate={false}
-                              onChange={[Function]}
-                              prefixCls="ant-checkbox"
-                    >
-                              ID
-                    </Checkbox>
-          </p>
-          <p
-                    style={
-                              Object {
-                                        "marginBottom": ".5em",
-                                        "marginTop": ".5em",
-                                      }
+            <div
+              className="ant-col-8 ant-form-item-label"
+            >
+              <label
+                className=""
+                htmlFor="id"
+                onClick={[Function]}
+                title="ID"
+              >
+                ID
+              </label>
+            </div>
+            <div
+              className="ant-col-16 ant-form-item-control-wrapper"
+            >
+              <div
+                className="ant-form-item-control "
+              >
+                <input
+                  className="ant-input ant-input-lg"
+                  data-__meta={
+                    Object {
+                      "leadingName": "id",
+                      "name": "id",
+                      "originalProps": Object {
+                        "disabled": false,
+                        "placeholder": "placeholder",
+                        "prefixCls": "ant-input",
+                        "type": "text",
+                      },
+                      "ref": null,
+                      "rules": undefined,
+                      "trigger": "onChange",
+                      "validate": Array [],
+                      "valuePropName": "value",
                     }
+                  }
+                  disabled={false}
+                  id="id"
+                  onChange={[Function]}
+                  onKeyDown={[Function]}
+                  placeholder="placeholder"
+                  size="large"
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="ant-col-6"
+          style={
+            Object {
+              "display": "block",
+              "paddingLeft": 20,
+              "paddingRight": 20,
+            }
+          }
+        >
+          <div
+            className="ant-row ant-form-item"
+            style={undefined}
           >
-                    <Checkbox
-                              defaultChecked={true}
-                              indeterminate={false}
+            <div
+              className="ant-col-8 ant-form-item-label"
+            >
+              <label
+                className=""
+                htmlFor="select"
+                onClick={[Function]}
+                title="Select"
+              >
+                Select
+              </label>
+            </div>
+            <div
+              className="ant-col-16 ant-form-item-control-wrapper"
+            >
+              <div
+                className="ant-form-item-control "
+              >
+                <div
+                  className="ant-select-lg ant-select ant-select-enabled ant-select-allow-clear"
+                  onBlur={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseEnter={undefined}
+                  onMouseLeave={undefined}
+                  onTouchStart={[Function]}
+                  style={undefined}
+                >
+                  <div
+                    aria-autocomplete="list"
+                    aria-expanded={false}
+                    aria-haspopup="true"
+                    className="ant-select-selection
+                              ant-select-selection--single"
+                    onKeyDown={[Function]}
+                    role="combobox"
+                    tabIndex={0}
+                  >
+                    <div
+                      className="ant-select-selection__rendered"
+                    />
+                    <span
+                      className="ant-select-selection__clear"
+                      onClick={[Function]}
+                      onMouseDown={[Function]}
+                      style={
+                        Object {
+                          "WebkitUserSelect": "none",
+                          "display": "none",
+                          "userSelect": "none",
+                        }
+                      }
+                      unselectable="unselectable"
+                    />
+                    <span
+                      className="ant-select-arrow"
+                      onClick={[Function]}
+                      style={
+                        Object {
+                          "WebkitUserSelect": "none",
+                          "userSelect": "none",
+                        }
+                      }
+                      unselectable="unselectable"
+                    >
+                      <b />
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="ant-col-6"
+          style={
+            Object {
+              "display": "block",
+              "paddingLeft": 20,
+              "paddingRight": 20,
+            }
+          }
+        >
+          <div
+            className="ant-row ant-form-item"
+            style={undefined}
+          >
+            <div
+              className="ant-col-8 ant-form-item-label"
+            >
+              <label
+                className=""
+                htmlFor="multi-select"
+                onClick={[Function]}
+                title="Multi Select"
+              >
+                Multi Select
+              </label>
+            </div>
+            <div
+              className="ant-col-16 ant-form-item-control-wrapper"
+            >
+              <div
+                className="ant-form-item-control "
+              >
+                <div
+                  className="ant-select-lg ant-select ant-select-enabled"
+                  onBlur={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseEnter={undefined}
+                  onMouseLeave={undefined}
+                  onTouchStart={[Function]}
+                  style={undefined}
+                >
+                  <div
+                    aria-autocomplete="list"
+                    aria-expanded={false}
+                    aria-haspopup="true"
+                    className="ant-select-selection
+                              ant-select-selection--multiple"
+                    role="combobox"
+                  >
+                    <div
+                      className="ant-select-selection__rendered"
+                    >
+                      <ul
+                        className={undefined}
+                        style={undefined}
+                      >
+                        <li
+                          className="ant-select-search ant-select-search--inline"
+                        >
+                          <div
+                            className="ant-select-search__field__wrap"
+                          >
+                            <input
+                              autoComplete="off"
+                              className="ant-select-search__field"
+                              disabled={undefined}
+                              id="multi-select"
                               onChange={[Function]}
-                              prefixCls="ant-checkbox"
-                    >
-                              Title
-                    </Checkbox>
-          </p>
-</Card>,
-        "handleChange": [Function],
-        "hideColumn": [Function],
-        "initialColumns": Array [
-          Object {
-            "dataIndex": "id",
-            "key": "id",
-            "title": "ID",
-          },
-          Object {
-            "dataIndex": "title",
-            "key": "title",
-            "title": "Title",
-          },
-        ],
-        "props": Object {
-          "clearBtnText": "Clear",
-          "initialColumns": Array [
+                              onKeyDown={[Function]}
+                              value=""
+                            />
+                            <span
+                              className="ant-select-search__field__mirror"
+                            >
+                              
+                               
+                            </span>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="ant-col-6"
+          style={
             Object {
-              "dataIndex": "id",
-              "key": "id",
-              "title": "ID",
-            },
-            Object {
-              "dataIndex": "title",
-              "key": "title",
-              "title": "Title",
-            },
-          ],
-          "listSelectionBtnText": "List selection",
-          "onSearch": [Function],
-          "pageSize": 10,
-          "searchBtnText": "Search",
-          "searchFields": Array [
-            Object {
-              "label": "ID",
-              "name": "id",
-              "payload": Object {
-                "props": Object {
-                  "placeholder": "placeholder",
-                },
-              },
-              "type": "input",
-            },
-            Object {
-              "label": "Select",
-              "name": "select",
-              "payload": Object {
-                "options": Array [
-                  Object {
-                    "key": "1",
-                    "label": "one",
-                    "value": "1",
-                  },
-                  Object {
-                    "key": "2",
-                    "label": "two",
-                    "value": "2",
-                  },
-                  Object {
-                    "key": "3",
-                    "label": "three",
-                    "value": "3",
-                  },
-                ],
-                "props": Object {
-                  "allowClear": true,
-                },
-              },
-              "type": "select",
-            },
-            Object {
-              "label": "Multi Select",
-              "name": "multi-select",
-              "payload": Object {
-                "options": Array [
-                  Object {
-                    "key": "1",
-                    "label": "one",
-                    "value": "1",
-                  },
-                  Object {
-                    "key": "2",
-                    "label": "two",
-                    "value": "2",
-                  },
-                  Object {
-                    "key": "3",
-                    "label": "three",
-                    "value": "3",
-                  },
-                ],
-                "props": Object {
-                  "mode": "multiple",
-                },
-              },
-              "type": "select",
-            },
-          ],
-        },
-        "refs": Object {},
-        "saveVisibleColumnKeysToStorage": [Function],
-        "shouldShowTableTitle": undefined,
-        "showColumn": [Function],
-        "startSearchButtonLoading": [Function],
-        "startTableLoading": [Function],
-        "state": Object {
-          "columns": Array [
-            Object {
-              "dataIndex": "id",
-              "key": "id",
-              "title": "ID",
-            },
-            Object {
-              "dataIndex": "title",
-              "key": "title",
-              "title": "Title",
-            },
-          ],
-          "currentValues": Object {},
-          "data": Array [],
-          "page": 1,
-          "pagination": Object {},
-          "searchButtonLoading": false,
-          "selectedRowKeys": Array [],
-          "selectedRows": Array [],
-          "tableLoading": false,
-        },
-        "stopSearchButtonLoading": [Function],
-        "stopTableLoading": [Function],
-        "tableTitle": [Function],
-        "updater": Object {
-          "enqueueCallback": [Function],
-          "enqueueCallbackInternal": [Function],
-          "enqueueElementInternal": [Function],
-          "enqueueForceUpdate": [Function],
-          "enqueueReplaceState": [Function],
-          "enqueueSetState": [Function],
-          "isMounted": [Function],
-          "validateCallback": [Function],
-        },
-        "visibleColumnKeys": undefined,
-        "visibleColumns": Array [
-          Object {
-            "dataIndex": "id",
-            "key": "id",
-            "title": "ID",
-          },
-          Object {
-            "dataIndex": "title",
-            "key": "title",
-            "title": "Title",
-          },
-        ],
-      },
-      "_mountOrder": 1,
-      "_pendingCallbacks": null,
-      "_pendingElement": null,
-      "_pendingForceUpdate": false,
-      "_pendingReplaceState": false,
-      "_pendingStateQueue": null,
-      "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <div>
-          <div>
-                    <Form(WrappedComponent)
-                              btnLoading={false}
-                              clearBtnText="Clear"
-                              fetch={[Function]}
-                              initialColumns={
-                                        Array [
-                                                  Object {
-                                                    "dataIndex": "id",
-                                                    "key": "id",
-                                                    "title": "ID",
-                                                  },
-                                                  Object {
-                                                    "dataIndex": "title",
-                                                    "key": "title",
-                                                    "title": "Title",
-                                                  },
-                                                ]
-                              }
-                              listSelectionBtnText="List selection"
-                              onSearch={[Function]}
-                              pageSize={10}
-                              searchBtnText="Search"
-                              searchFields={
-                                        Array [
-                                                  Object {
-                                                    "label": "ID",
-                                                    "name": "id",
-                                                    "payload": Object {
-                                                      "props": Object {
-                                                        "placeholder": "placeholder",
-                                                      },
-                                                    },
-                                                    "type": "input",
-                                                  },
-                                                  Object {
-                                                    "label": "Select",
-                                                    "name": "select",
-                                                    "payload": Object {
-                                                      "options": Array [
-                                                        Object {
-                                                          "key": "1",
-                                                          "label": "one",
-                                                          "value": "1",
-                                                        },
-                                                        Object {
-                                                          "key": "2",
-                                                          "label": "two",
-                                                          "value": "2",
-                                                        },
-                                                        Object {
-                                                          "key": "3",
-                                                          "label": "three",
-                                                          "value": "3",
-                                                        },
-                                                      ],
-                                                      "props": Object {
-                                                        "allowClear": true,
-                                                      },
-                                                    },
-                                                    "type": "select",
-                                                  },
-                                                  Object {
-                                                    "label": "Multi Select",
-                                                    "name": "multi-select",
-                                                    "payload": Object {
-                                                      "options": Array [
-                                                        Object {
-                                                          "key": "1",
-                                                          "label": "one",
-                                                          "value": "1",
-                                                        },
-                                                        Object {
-                                                          "key": "2",
-                                                          "label": "two",
-                                                          "value": "2",
-                                                        },
-                                                        Object {
-                                                          "key": "3",
-                                                          "label": "three",
-                                                          "value": "3",
-                                                        },
-                                                      ],
-                                                      "props": Object {
-                                                        "mode": "multiple",
-                                                      },
-                                                    },
-                                                    "type": "select",
-                                                  },
-                                                ]
-                              }
+              "display": "block",
+              "paddingLeft": 20,
+              "paddingRight": 20,
+            }
+          }
+        >
+          <div
+            className="ant-row ant-form-item"
+            style={undefined}
+          >
+            <div
+              className="ant-col-8 ant-form-item-label"
+            >
+              <label
+                className=""
+                htmlFor="datePicker"
+                onClick={[Function]}
+                title="Date Picker"
+              >
+                Date Picker
+              </label>
+            </div>
+            <div
+              className="ant-col-16 ant-form-item-control-wrapper"
+            >
+              <div
+                className="ant-form-item-control "
+              >
+                <span
+                  className="ant-calendar-picker"
+                  style={Object {}}
+                >
+                  <div
+                    onBlur={undefined}
+                    onClick={[Function]}
+                    onFocus={undefined}
+                    onKeyDown={[Function]}
+                    onMouseDown={[Function]}
+                    onMouseEnter={undefined}
+                    onMouseLeave={undefined}
+                    onTouchStart={[Function]}
+                  >
+                    <input
+                      className="ant-calendar-picker-input ant-input ant-input-lg"
+                      disabled={undefined}
+                      placeholder="请选择日期"
+                      readOnly={true}
+                      value=""
                     />
-          </div>
-          <div>
-                    <Row
-                              gutter={0}
-                    >
-                              <Table
-                                        bordered={true}
-                                        className=""
-                                        columns={
-                                                  Array [
-                                                            Object {
-                                                              "dataIndex": "id",
-                                                              "key": "id",
-                                                              "title": "ID",
-                                                            },
-                                                            Object {
-                                                              "dataIndex": "title",
-                                                              "key": "title",
-                                                              "title": "Title",
-                                                            },
-                                                          ]
-                                        }
-                                        dataSource={Array []}
-                                        indentSize={20}
-                                        loading={false}
-                                        locale={Object {}}
-                                        onChange={[Function]}
-                                        pagination={Object {}}
-                                        prefixCls="ant-table"
-                                        rowKey="key"
-                                        rowSelection={
-                                                  Object {
-                                                            "onChange": [Function],
-                                                            "selectedRowKeys": Array [],
-                                                          }
-                                        }
-                                        showHeader={true}
-                                        size="middle"
-                                        useFixedHeader={false}
-                              />
-                    </Row>
-          </div>
-</div>,
-        "_debugID": 2,
-        "_renderedOutput": <div>
-          <div>
-                    <Form(WrappedComponent)
-                              btnLoading={false}
-                              clearBtnText="Clear"
-                              fetch={[Function]}
-                              initialColumns={
-                                        Array [
-                                                  Object {
-                                                    "dataIndex": "id",
-                                                    "key": "id",
-                                                    "title": "ID",
-                                                  },
-                                                  Object {
-                                                    "dataIndex": "title",
-                                                    "key": "title",
-                                                    "title": "Title",
-                                                  },
-                                                ]
-                              }
-                              listSelectionBtnText="List selection"
-                              onSearch={[Function]}
-                              pageSize={10}
-                              searchBtnText="Search"
-                              searchFields={
-                                        Array [
-                                                  Object {
-                                                    "label": "ID",
-                                                    "name": "id",
-                                                    "payload": Object {
-                                                      "props": Object {
-                                                        "placeholder": "placeholder",
-                                                      },
-                                                    },
-                                                    "type": "input",
-                                                  },
-                                                  Object {
-                                                    "label": "Select",
-                                                    "name": "select",
-                                                    "payload": Object {
-                                                      "options": Array [
-                                                        Object {
-                                                          "key": "1",
-                                                          "label": "one",
-                                                          "value": "1",
-                                                        },
-                                                        Object {
-                                                          "key": "2",
-                                                          "label": "two",
-                                                          "value": "2",
-                                                        },
-                                                        Object {
-                                                          "key": "3",
-                                                          "label": "three",
-                                                          "value": "3",
-                                                        },
-                                                      ],
-                                                      "props": Object {
-                                                        "allowClear": true,
-                                                      },
-                                                    },
-                                                    "type": "select",
-                                                  },
-                                                  Object {
-                                                    "label": "Multi Select",
-                                                    "name": "multi-select",
-                                                    "payload": Object {
-                                                      "options": Array [
-                                                        Object {
-                                                          "key": "1",
-                                                          "label": "one",
-                                                          "value": "1",
-                                                        },
-                                                        Object {
-                                                          "key": "2",
-                                                          "label": "two",
-                                                          "value": "2",
-                                                        },
-                                                        Object {
-                                                          "key": "3",
-                                                          "label": "three",
-                                                          "value": "3",
-                                                        },
-                                                      ],
-                                                      "props": Object {
-                                                        "mode": "multiple",
-                                                      },
-                                                    },
-                                                    "type": "select",
-                                                  },
-                                                ]
-                              }
+                    <span
+                      className="ant-calendar-picker-icon"
                     />
+                  </div>
+                </span>
+              </div>
+            </div>
           </div>
-          <div>
-                    <Row
-                              gutter={0}
+        </div>
+        <div
+          className="ant-col-6"
+          style={
+            Object {
+              "display": "block",
+              "paddingLeft": 20,
+              "paddingRight": 20,
+            }
+          }
+        >
+          <div
+            className="ant-row ant-form-item"
+            style={undefined}
+          >
+            <div
+              className="ant-col-8 ant-form-item-label"
+            >
+              <label
+                className=""
+                htmlFor="treeselect"
+                onClick={[Function]}
+                title="Tree Select"
+              >
+                Tree Select
+              </label>
+            </div>
+            <div
+              className="ant-col-16 ant-form-item-control-wrapper"
+            >
+              <div
+                className="ant-form-item-control "
+              >
+                <span
+                  className="ant-select-lg ant-select ant-select-enabled"
+                  onBlur={undefined}
+                  onClick={[Function]}
+                  onFocus={undefined}
+                  onMouseDown={[Function]}
+                  onMouseEnter={undefined}
+                  onMouseLeave={undefined}
+                  onTouchStart={[Function]}
+                  style={undefined}
+                >
+                  <span
+                    aria-autocomplete="list"
+                    aria-expanded={undefined}
+                    aria-haspopup="true"
+                    className="ant-select-selection
+                              ant-select-selection--single"
+                    onKeyDown={[Function]}
+                    role="combobox"
+                    tabIndex={0}
+                  >
+                    <span
+                      className="ant-select-selection__rendered"
                     >
-                              <Table
-                                        bordered={true}
-                                        className=""
-                                        columns={
-                                                  Array [
-                                                            Object {
-                                                              "dataIndex": "id",
-                                                              "key": "id",
-                                                              "title": "ID",
-                                                            },
-                                                            Object {
-                                                              "dataIndex": "title",
-                                                              "key": "title",
-                                                              "title": "Title",
-                                                            },
-                                                          ]
-                                        }
-                                        dataSource={Array []}
-                                        indentSize={20}
-                                        loading={false}
-                                        locale={Object {}}
-                                        onChange={[Function]}
-                                        pagination={Object {}}
-                                        prefixCls="ant-table"
-                                        rowKey="key"
-                                        rowSelection={
-                                                  Object {
-                                                            "onChange": [Function],
-                                                            "selectedRowKeys": Array [],
-                                                          }
-                                        }
-                                        showHeader={true}
-                                        size="middle"
-                                        useFixedHeader={false}
-                              />
-                    </Row>
+                      <span
+                        className="ant-select-selection__placeholder"
+                      >
+                        
+                      </span>
+                    </span>
+                    <span
+                      className="ant-select-arrow"
+                      style={
+                        Object {
+                          "outline": "none",
+                        }
+                      }
+                    >
+                      <b />
+                    </span>
+                  </span>
+                </span>
+              </div>
+            </div>
           </div>
-</div>,
-      },
-      "_renderedNodeType": 0,
-      "_rootNodeID": 0,
-      "_topLevelWrapper": null,
-      "_updateBatchNumber": null,
-      "_warnedAboutRefsInRender": false,
-    },
-    "getRenderOutput": [Function],
-    "render": [Function],
-  },
-  "root": [Circular],
-  "unrendered": <DataTable
-    clearBtnText="Clear"
-    initialColumns={
-        Array [
+        </div>
+        <div
+          className="ant-col-6"
+          style={
             Object {
-              "dataIndex": "id",
-              "key": "id",
-              "title": "ID",
-            },
+              "display": "block",
+              "paddingLeft": 20,
+              "paddingRight": 20,
+            }
+          }
+        >
+          <div
+            className="ant-row ant-form-item"
+            style={undefined}
+          >
+            <div
+              className="ant-col-8 ant-form-item-label"
+            >
+              <label
+                className=""
+                htmlFor="foo"
+                onClick={[Function]}
+                title="Foo"
+              >
+                Foo
+              </label>
+            </div>
+            <div
+              className="ant-col-16 ant-form-item-control-wrapper"
+            >
+              <div
+                className="ant-form-item-control "
+              >
+                <input
+                  className="ant-input ant-input-lg"
+                  data-__meta={
+                    Object {
+                      "leadingName": "foo",
+                      "name": "foo",
+                      "originalProps": Object {
+                        "disabled": false,
+                        "prefixCls": "ant-input",
+                        "type": "text",
+                      },
+                      "ref": null,
+                      "rules": undefined,
+                      "trigger": "onChange",
+                      "validate": Array [],
+                      "valuePropName": "value",
+                    }
+                  }
+                  disabled={false}
+                  id="foo"
+                  onChange={[Function]}
+                  onKeyDown={[Function]}
+                  size="large"
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="ant-col-6"
+          style={
             Object {
-              "dataIndex": "title",
-              "key": "title",
-              "title": "Title",
-            },
-          ]
-    }
-    listSelectionBtnText="List selection"
-    onSearch={[Function]}
-    pageSize={10}
-    searchBtnText="Search"
-    searchFields={
-        Array [
+              "display": "block",
+              "paddingLeft": 20,
+              "paddingRight": 20,
+            }
+          }
+        >
+          <div
+            className="ant-row ant-form-item"
+            style={undefined}
+          >
+            <div
+              className="ant-col-8 ant-form-item-label"
+            >
+              <label
+                className=""
+                htmlFor="bar"
+                onClick={[Function]}
+                title="Bar"
+              >
+                Bar
+              </label>
+            </div>
+            <div
+              className="ant-col-16 ant-form-item-control-wrapper"
+            >
+              <div
+                className="ant-form-item-control "
+              >
+                <input
+                  className="ant-input ant-input-lg"
+                  data-__meta={
+                    Object {
+                      "leadingName": "bar",
+                      "name": "bar",
+                      "originalProps": Object {
+                        "disabled": false,
+                        "prefixCls": "ant-input",
+                        "type": "text",
+                      },
+                      "ref": null,
+                      "rules": undefined,
+                      "trigger": "onChange",
+                      "validate": Array [],
+                      "valuePropName": "value",
+                    }
+                  }
+                  disabled={false}
+                  id="bar"
+                  onChange={[Function]}
+                  onKeyDown={[Function]}
+                  size="large"
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="ant-row"
+        style={undefined}
+      >
+        <div
+          className="ant-col-24"
+          style={
             Object {
-              "label": "ID",
-              "name": "id",
-              "payload": Object {
-                "props": Object {
-                  "placeholder": "placeholder",
-                },
-              },
-              "type": "input",
-            },
-            Object {
-              "label": "Select",
-              "name": "select",
-              "payload": Object {
-                "options": Array [
-                  Object {
-                    "key": "1",
-                    "label": "one",
-                    "value": "1",
-                  },
-                  Object {
-                    "key": "2",
-                    "label": "two",
-                    "value": "2",
-                  },
-                  Object {
-                    "key": "3",
-                    "label": "three",
-                    "value": "3",
-                  },
-                ],
-                "props": Object {
-                  "allowClear": true,
-                },
-              },
-              "type": "select",
-            },
-            Object {
-              "label": "Multi Select",
-              "name": "multi-select",
-              "payload": Object {
-                "options": Array [
-                  Object {
-                    "key": "1",
-                    "label": "one",
-                    "value": "1",
-                  },
-                  Object {
-                    "key": "2",
-                    "label": "two",
-                    "value": "2",
-                  },
-                  Object {
-                    "key": "3",
-                    "label": "three",
-                    "value": "3",
-                  },
-                ],
-                "props": Object {
-                  "mode": "multiple",
-                },
-              },
-              "type": "select",
-            },
-          ]
-    }
-/>,
-}
+              "textAlign": "right",
+            }
+          }
+        >
+          <button
+            className="ant-btn ant-btn-primary"
+            onClick={[Function]}
+            type="button"
+          >
+            <span>
+              Search
+            </span>
+          </button>
+          <button
+            className="ant-btn"
+            onClick={[Function]}
+            style={
+              Object {
+                "marginLeft": 8,
+              }
+            }
+            type="button"
+          >
+            <span>
+              Clear
+            </span>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div>
+    <div
+      className="ant-row"
+      style={undefined}
+    >
+      <div
+        className="ant-table-wrapper"
+        style={undefined}
+      >
+        <div
+          className="ant-spin-nested-loading"
+          style={null}
+        >
+          <div
+            className="ant-spin-container"
+          >
+            <div
+              className="ant-table ant-table-middle ant-table-bordered ant-table-empty ant-table-scroll-position-left"
+              style={Object {}}
+            >
+              <div
+                className="ant-table-content"
+              >
+                <div
+                  className="ant-table-body"
+                  onScroll={[Function]}
+                  style={Object {}}
+                >
+                  <table
+                    className=""
+                    style={Object {}}
+                  >
+                    <colgroup>
+                      <col
+                        style={
+                          Object {
+                            "minWidth": undefined,
+                            "width": undefined,
+                          }
+                        }
+                      />
+                      <col
+                        style={
+                          Object {
+                            "minWidth": undefined,
+                            "width": undefined,
+                          }
+                        }
+                      />
+                      <col
+                        style={
+                          Object {
+                            "minWidth": undefined,
+                            "width": undefined,
+                          }
+                        }
+                      />
+                    </colgroup>
+                    <thead
+                      className="ant-table-thead"
+                    >
+                      <tr
+                        style={null}
+                      >
+                        <th
+                          className="ant-table-selection-column"
+                        >
+                          <span>
+                            <div
+                              className="ant-table-selection"
+                            >
+                              <label
+                                className="ant-checkbox-wrapper"
+                                onMouseEnter={undefined}
+                                onMouseLeave={undefined}
+                                style={undefined}
+                              >
+                                <span
+                                  className="ant-checkbox ant-checkbox-disabled"
+                                  style={Object {}}
+                                >
+                                  <input
+                                    checked={false}
+                                    className="ant-checkbox-input"
+                                    disabled={true}
+                                    name={undefined}
+                                    onBlur={[Function]}
+                                    onChange={[Function]}
+                                    onClick={undefined}
+                                    onFocus={[Function]}
+                                    readOnly={undefined}
+                                    tabIndex={undefined}
+                                    type="checkbox"
+                                  />
+                                  <span
+                                    className="ant-checkbox-inner"
+                                  />
+                                </span>
+                              </label>
+                            </div>
+                          </span>
+                        </th>
+                        <th
+                          className=""
+                        >
+                          <span>
+                            ID
+                          </span>
+                        </th>
+                        <th
+                          className=""
+                        >
+                          <span>
+                            Title
+                          </span>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody
+                      className="ant-table-tbody"
+                    />
+                  </table>
+                </div>
+                <div
+                  className="ant-table-placeholder"
+                >
+                  <span>
+                    <i
+                      className="anticon anticon-frown-o"
+                    />
+                    暂无数据
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 `;
