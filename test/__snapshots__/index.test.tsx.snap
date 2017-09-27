@@ -343,6 +343,84 @@ exports[`DataTable should render correctly 1`] = `
             >
               <label
                 className=""
+                htmlFor="treeselect"
+                onClick={[Function]}
+                title="Tree Select"
+              >
+                Tree Select
+              </label>
+            </div>
+            <div
+              className="ant-col-16 ant-form-item-control-wrapper"
+            >
+              <div
+                className="ant-form-item-control "
+              >
+                <span
+                  className="ant-select-lg ant-select ant-select-enabled"
+                  onBlur={undefined}
+                  onClick={[Function]}
+                  onFocus={undefined}
+                  onMouseDown={[Function]}
+                  onMouseEnter={undefined}
+                  onMouseLeave={undefined}
+                  onTouchStart={[Function]}
+                  style={undefined}
+                >
+                  <span
+                    aria-autocomplete="list"
+                    aria-expanded={undefined}
+                    aria-haspopup="true"
+                    className="ant-select-selection
+                              ant-select-selection--single"
+                    onKeyDown={[Function]}
+                    role="combobox"
+                    tabIndex={0}
+                  >
+                    <span
+                      className="ant-select-selection__rendered"
+                    >
+                      <span
+                        className="ant-select-selection__placeholder"
+                      >
+                        
+                      </span>
+                    </span>
+                    <span
+                      className="ant-select-arrow"
+                      style={
+                        Object {
+                          "outline": "none",
+                        }
+                      }
+                    >
+                      <b />
+                    </span>
+                  </span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="ant-col-6"
+          style={
+            Object {
+              "display": "block",
+              "paddingLeft": 20,
+              "paddingRight": 20,
+            }
+          }
+        >
+          <div
+            className="ant-row ant-form-item"
+            style={undefined}
+          >
+            <div
+              className="ant-col-8 ant-form-item-label"
+            >
+              <label
+                className=""
                 htmlFor="foo"
                 onClick={[Function]}
                 title="Foo"
