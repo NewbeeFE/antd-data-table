@@ -13,11 +13,13 @@ const FormItem = Form.Item
 import InputRenderer from './renderer/input'
 import SelectRenderer from './renderer/select'
 import DatePickerRenderer from './renderer/datePicker'
+import TreeSelectRenderer from './renderer/treeSelect'
 
 const comesWithRenderer = {
   input: InputRenderer,
   select: SelectRenderer,
-  datePicker: DatePickerRenderer
+  datePicker: DatePickerRenderer,
+  treeSelect: TreeSelectRenderer
 }
 
 /** Your component's props */

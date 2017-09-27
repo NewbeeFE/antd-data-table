@@ -238,6 +238,14 @@ interface payload {
 }
 ```
 
+#### treeSelect
+
+```ts
+interface payload {
+  props: object // antd TreeSelect props
+}
+```
+
 ##### select
 
 ```ts
