@@ -82,7 +82,7 @@ export class SearchField extends React.Component<ISearchFieldProps, ISearchField
       return (
         <Col span={6} key={i} style={this.shouldHandleCollapse ? { display: i < count ? 'block' : 'none' } : { display: 'block' }}>
           <FormItem {...formItemLayout} label={searchField.label}>
-            {getFieldDecorator(searchField.name, { rules: searchField.validationRule })(
+            {getFieldDecorator(searchField.name, { rules: searchField.validationRule, initialValue: searchField.initialValue })(
               renderComponent()
             )}
           </FormItem>

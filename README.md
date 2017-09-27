@@ -216,6 +216,7 @@ SearchField is an object that contains:
 - **label: string** Pass to `<Form.Item>`'s `label` property.
 - **name: string** Pass to `getFieldDecorator` as the decorator name.
 - **type?: RenderType** antd-data-table comes with some common form item type. Such as `input`, `select`.
+- **initialValue?: any** Inital form value.
 - **renderer?: (payload?: object) => React.ReactNode** When the form item types are not statisfied, your could write your own renderer. the `ReactNode` that returned will be wrapped by `getFieldDecorator`.
 - **validationRule?: ValidateionRule[]** antd validation rules. Pass to `getFieldDecorator(name, { rules })`.
 - **payload?: { props: any, [key: string]: any }** Some params that pass to the renderer.

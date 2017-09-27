@@ -51,6 +51,7 @@ export const searchFields: SearchField[] = [
     label: 'Select',
     name: 'select',
     type: 'select',
+    initialValue: '1',
     payload: {
       props: {
         allowClear: true
