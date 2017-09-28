@@ -67,6 +67,7 @@ export const searchFields: SearchField[] = [
     label: 'Multi Select',
     name: 'multi-select',
     type: 'select',
+    span: 12,
     payload: {
       props: {
         mode: 'multiple'
