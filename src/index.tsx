@@ -56,6 +56,8 @@ export type SearchField = {
   validationRule?: ValidationRule[],
   /** 初始值 */
   initialValue?: any,
+  /** 表单项的 span 值, 默认 6 */
+  span?: number,
   /** 传给渲染的组件的参数 */
   payload?: SearchFieldPayload
 }

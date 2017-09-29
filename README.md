@@ -220,6 +220,7 @@ SearchField is an object that contains:
 - **renderer?: (payload?: object) => React.ReactNode** When the form item types are not statisfied, your could write your own renderer. the `ReactNode` that returned will be wrapped by `getFieldDecorator`.
 - **validationRule?: ValidateionRule[]** antd validation rules. Pass to `getFieldDecorator(name, { rules })`.
 - **payload?: { props: any, [key: string]: any }** Some params that pass to the renderer.
+- **span?: number** Form Item Col span value. 6 by default.
 
 #### out of the box render type
 
@@ -307,7 +308,7 @@ default is 10
 
 ### `rowActions?: RowAction[]`
 
-### enableListSelection?: boolean
+### `enableListSelection?`: boolean
 
 If `true`, a list selection button will display on table title.
 
