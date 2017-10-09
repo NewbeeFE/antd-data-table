@@ -193,7 +193,7 @@ export class DataTable extends React.Component<IDataTableProps, IDataTableState>
     selectedRowKeys: []
   }
 
-  filterPannel = (<Card bodyStyle={{ padding: '1em', width: '12em' }}>
+  private filterPannel = (<Card bodyStyle={{ padding: '1em', width: '12em' }}>
     {this.initialColumns.map(column => {
       const isSelected = this.state.columns.find(c => c.key === column.key) !== undefined
       const onChange = (e) => {
@@ -217,70 +217,6 @@ export class DataTable extends React.Component<IDataTableProps, IDataTableState>
     if (this.props.enableListSelection && !this.props.name) {
       console.warn('`name` is required while `enableListSelection` is true!')
     }
-  }
-
-  startTableLoading = () => {
-    this.setState({ tableLoading: true })
-  }
-
-  stopTableLoading = () => {
-    this.setState({ tableLoading: false })
-  }
-
-  startSearchButtonLoading = () => {
-    this.setState({ searchButtonLoading: true })
-  }
-
-  stopSearchButtonLoading = () => {
-    this.setState({ searchButtonLoading: false })
-  }
-
-  tableTitle = (currentPageData) => {
-    if (this.shouldShowTableTitle) {
-      return (
-        <Row type='flex'>
-          <Col span={12}>
-            {this.props.title}
-          </Col>
-          <Col span={12}>
-            <Row type='flex' justify='end'>
-              <Col>
-                {this.props.enableListSelection && (
-                  <Dropdown overlay={this.filterPannel} trigger={['click']}>
-                    <Button size='small'>{this.props.listSelectionBtnText}</Button>
-                  </Dropdown>
-                )}
-              </Col>
-            </Row>
-          </Col>
-        </Row>
-      )
-    }
-  }
-
-  saveVisibleColumnKeysToStorage = (columns: TableColumnConfig<any>[]) => {
-    localStorage.setItem(`${DataTable.storageKey}-${this.props.name}-columnIds`, columns.map(column => column.key).join(','))
-  }
-
-  applyData = (data: any[]) => {
-    this.setState({ data })
-  }
-
-  applyValues = (values, cb) => {
-    this.setState({ currentValues: values }, cb)
-  }
-
-  clearPagination = () => {
-    const pager = { ...this.state.pagination }
-    pager.current = 1
-    this.setState({ pagination: pager })
-  }
-
-  handleChange = (pagination: PaginationProps) => {
-    const pager = { ...this.state.pagination }
-    pager.current = pagination.current
-    this.setState({ pagination: pager })
-    this.fetch(pager.current || 1) // tslint:disable-line
   }
 
   fetch: SearchFunc = async (page: number, values: object = this.state.currentValues, clearPagination: boolean = false) => {
@@ -312,7 +248,32 @@ export class DataTable extends React.Component<IDataTableProps, IDataTableState>
     })
   }
 
-  hideColumn = (key?: string) => {
+  private saveVisibleColumnKeysToStorage = (columns: TableColumnConfig<any>[]) => {
+    localStorage.setItem(`${DataTable.storageKey}-${this.props.name}-columnIds`, columns.map(column => column.key).join(','))
+  }
+
+  private applyData = (data: any[]) => {
+    this.setState({ data })
+  }
+
+  private applyValues = (values, cb) => {
+    this.setState({ currentValues: values }, cb)
+  }
+
+  private clearPagination = () => {
+    const pager = { ...this.state.pagination }
+    pager.current = 1
+    this.setState({ pagination: pager })
+  }
+
+  private handleChange = (pagination: PaginationProps) => {
+    const pager = { ...this.state.pagination }
+    pager.current = pagination.current
+    this.setState({ pagination: pager })
+    this.fetch(pager.current || 1) // tslint:disable-line
+  }
+
+  private hideColumn = (key?: string) => {
     this.state.columns.forEach((column, i) => {
       if (column.key === key) {
         const columns = update(this.state.columns, { $splice: [[i, 1]] })
@@ -323,14 +284,14 @@ export class DataTable extends React.Component<IDataTableProps, IDataTableState>
     })
   }
 
-  clearSelection = () => {
+  private clearSelection = () => {
     this.setState({
       selectedRows: [],
       selectedRowKeys: []
     })
   }
 
-  showColumn = (key?: string) => {
+  private showColumn = (key?: string) => {
     this.initialColumns.forEach((column, i) => {
       if (column.key === key) {
         const columns = update(this.state.columns, { $splice: [[i, 0, column]] })
@@ -339,6 +300,45 @@ export class DataTable extends React.Component<IDataTableProps, IDataTableState>
         }, () => this.saveVisibleColumnKeysToStorage(columns))
       }
     })
+  }
+
+  private startTableLoading = () => {
+    this.setState({ tableLoading: true })
+  }
+
+  private stopTableLoading = () => {
+    this.setState({ tableLoading: false })
+  }
+
+  private startSearchButtonLoading = () => {
+    this.setState({ searchButtonLoading: true })
+  }
+
+  private stopSearchButtonLoading = () => {
+    this.setState({ searchButtonLoading: false })
+  }
+
+  private tableTitle = (currentPageData) => {
+    if (this.shouldShowTableTitle) {
+      return (
+        <Row type='flex'>
+          <Col span={12}>
+            {this.props.title}
+          </Col>
+          <Col span={12}>
+            <Row type='flex' justify='end'>
+              <Col>
+                {this.props.enableListSelection && (
+                  <Dropdown overlay={this.filterPannel} trigger={['click']}>
+                    <Button size='small'>{this.props.listSelectionBtnText}</Button>
+                  </Dropdown>
+                )}
+              </Col>
+            </Row>
+          </Col>
+        </Row>
+      )
+    }
   }
 
   render () {
@@ -370,7 +370,7 @@ export class DataTable extends React.Component<IDataTableProps, IDataTableState>
             <Table
               bordered
               size='middle'
-              {...this.shouldShowTableTitle && {title: this.tableTitle}}
+              {...this.shouldShowTableTitle && { title: this.tableTitle }}
               rowSelection={rowSelection}
               rowKey={this.props.rowKey}
               loading={this.state.tableLoading}
