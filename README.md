@@ -314,6 +314,10 @@ If `true`, a list selection button will display on table title.
 
 *Be sure to pass the `name` props if it is enable.*
 
+### `rowSelection?`: TableRowSelection
+
+Custom `rowSelection`.
+
 ## FAQ
 
 ### How to trigger the `onSearch` action imperatively?
