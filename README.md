@@ -314,6 +314,49 @@ If `true`, a list selection button will display on table title.
 
 *Be sure to pass the `name` props if it is enable.*
 
+## FAQ
+
+### How to trigger the `onSearch` action imperatively?
+
+There is a public `fetch` method in DataTable to do this action. So you could get it from `ref`:
+
+[Demo](https://newbeefe.github.io/antd-data-table/?selectedKind=DataTable&selectedStory=customSearch)
+
+```jsx
+// ...
+render () {
+  let dataTableRef: DataTable | null = null
+
+  const saveDataTableRef = (ref: DataTable) => {
+    dataTableRef = ref
+  }
+
+  const onClickCustomSearch = () => {
+    if (dataTableRef) {
+      dataTableRef.fetch(1)
+    }
+  }
+
+  return (
+    <div style={{ padding: '1em' }}>
+      <DataTable
+        ref={saveDataTableRef}
+        name='customSearch'
+        rowKey={record => record.id}
+        searchFields={searchFields}
+        initialColumns={columns}
+        onSearch={onSearch}
+        pageSize={10}
+        onError={onError}
+      />
+      <Button onClick={onClickCustomSearch}>Custom Search</Button>
+    </div>
+  )
+}
+```
+
+`fetch: async (page: number, values: object = this.state.currentValues, clearPagination: boolean = false)`
+
 ## Build
 
 ```bash
