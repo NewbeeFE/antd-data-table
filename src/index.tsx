@@ -11,7 +11,7 @@ import {
   Menu
 } from 'antd'
 import * as update from 'immutability-helper'
-import { TableColumnConfig } from 'antd/lib/table/Table'
+import { TableColumnConfig, TableRowSelection } from 'antd/lib/table/Table'
 import { ColumnProps } from 'antd/lib/table/Column' // tslint:disable-line
 import { PaginationProps } from 'antd/lib/pagination/Pagination'
 import { ValidationRule } from 'antd/lib/form/Form'
@@ -103,7 +103,8 @@ export interface IDataTableProps {
   /** 执行 search 动作，返回一个 AxiosPromis */
   onSearch<T> (info: SearchInfo): Promise<SearchResponse<T>>,
   /** reject handler */
-  onError? (err): void
+  onError? (err): void,
+  rowSelection?: TableRowSelection<any>
 }
 
 /** Your component's state */
@@ -342,14 +343,14 @@ export class DataTable extends React.Component<IDataTableProps, IDataTableState>
   }
 
   render () {
-    const rowSelection = {
+    const rowSelection = Object.assign({}, {
       selectedRowKeys: this.state.selectedRowKeys,
       onChange: (selectedRowKeys, selectedRows) => {
         this.setState({
           selectedRowKeys, selectedRows
         })
       }
-    }
+    }, this.props.rowSelection)
 
     return (
       <div>
