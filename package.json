@@ -12,8 +12,10 @@
     "cov": "npm test -- --coverage",
     "lint": "tslint 'src/**/*.ts?(x)' --type-check --project tsconfig.json",
     "build": "tsc",
+    "clean": "rimraf lib",
     "build:storybook": "build-storybook -c .storybook -o docs",
-    "pre-release": "npm run lint && npm test && npm run build:storybook && rimraf lib && npm run build",
+    "pre-release": "npm run lint && npm test && npm run build:storybook && npm run clean && npm run build",
+    "prepublish": "npm run lint && npm test && npm run clean && npm run build",
     "patch": "npm run pre-release && npm version patch",
     "minor": "npm run pre-release && npm version minor"
   },
