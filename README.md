@@ -387,6 +387,14 @@ $ yarn run build # build the distribution file
 $ yarn run build:storybook # build storybook
 ```
 
+### Release workflow
+
+```bash
+$ yarn run build:storybook # build storybook
+
+$ npm publish
+```
+
 # License
 
 MIT License
