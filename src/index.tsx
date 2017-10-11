@@ -190,7 +190,9 @@ export class DataTable extends React.Component<IDataTableProps, IDataTableState>
     columns: [] = this.visibleColumns,
     data: [],
     page: 1,
-    pagination: {} as PaginationProps,
+    pagination: {
+      pageSize: this.props.pageSize
+    } as PaginationProps,
     currentValues: {},
     tableLoading: false,
     searchButtonLoading: false,
