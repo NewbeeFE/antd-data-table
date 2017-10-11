@@ -13,32 +13,7 @@ import { TableColumnConfig } from 'antd/lib/table/Table'
 /** Import component */
 import { DataTable, SearchField, SearchInfo, Plugin } from '../src'
 
-import { searchFields, columns, onSearch, onError } from './share'
-
-const plugins: Plugin[] = [
-  {
-    renderer (selectedRowKeys, selectedRows, clearSelectionCallback) {
-      const onClick = () => {
-        action('onClick test plugin')(selectedRowKeys)
-        clearSelectionCallback()
-      }
-      return (
-        <Button onClick={onClick}>Plugin A</Button>
-      )
-    }
-  },
-  {
-    renderer (selectedRowKeys, selectedRows, clearSelectionCallback) {
-      const onClick = () => {
-        action('onClick test plugin')(selectedRowKeys)
-        clearSelectionCallback()
-      }
-      return (
-        <Button onClick={onClick}>Plugin 2</Button>
-      )
-    }
-  }
-]
+import { searchFields, columns, onSearch, onError, plugins } from './share'
 
 storiesOf('DataTable', module)
   .addDecorator(withReadme(require('./plugins.md')))
