@@ -318,6 +318,18 @@ If `true`, a list selection button will display on table title.
 
 Custom `rowSelection`.
 
+### `affixTarget?`: () => HTMLelement
+
+For `Affix`. Specifies the scrollable area dom node
+
+### `affixOffsetTop?`: number
+
+Pixels to offset from top when calculating position of scroll	
+
+### `affixOffsetBottom?`: number
+
+Pixels to offset from bottom when calculating position of scroll	
+
 ## FAQ
 
 ### How to trigger the `onSearch` action imperatively?

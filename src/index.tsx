@@ -8,7 +8,8 @@ import {
   Dropdown,
   Card,
   Checkbox,
-  Menu
+  Menu,
+  Affix
 } from 'antd'
 import * as update from 'immutability-helper'
 import { TableColumnConfig, TableRowSelection } from 'antd/lib/table/Table'
@@ -104,7 +105,10 @@ export interface IDataTableProps {
   onSearch<T> (info: SearchInfo): Promise<SearchResponse<T>>,
   /** reject handler */
   onError? (err): void,
-  rowSelection?: TableRowSelection<any>
+  rowSelection?: TableRowSelection<any>,
+  affixTarget?: () => HTMLElement,
+  affixOffsetTop?: number,
+  affixOffsetBottom?: number
 }
 
 /** Your component's state */
@@ -212,7 +216,7 @@ export class DataTable extends React.Component<IDataTableProps, IDataTableState>
     })}
   </Card>)
 
-  constructor (props) {
+  constructor(props) {
     super(props)
 
     if (this.props.enableListSelection && !this.props.name) {
@@ -352,21 +356,33 @@ export class DataTable extends React.Component<IDataTableProps, IDataTableState>
       }
     }, this.props.rowSelection)
 
+    const ActionPanel = this.props.plugins && (
+      <Row className='operationpannel' gutter={16} type='flex' style={{ paddingBottom: '1em' }}>
+        {(this.props.plugins).map(plugin => {
+          return (
+            <Col span={plugin.colSpan}>
+              {plugin.renderer(this.state.selectedRowKeys, this.state.selectedRows, this.clearSelection)}
+            </Col>
+          )
+        })}
+      </Row>
+    )
+
     return (
       <div>
         <div>
           <SearchField {...this.props} fetch={this.fetch} btnLoading={this.state.searchButtonLoading} />
         </div>
         <div>
-          {this.props.plugins && <Row className='operationpannel' gutter={16} type='flex' style={{ paddingBottom: '1em' }}>
-            {(this.props.plugins).map(plugin => {
-              return (
-                <Col span={plugin.colSpan}>
-                  {plugin.renderer(this.state.selectedRowKeys, this.state.selectedRows, this.clearSelection)}
-                </Col>
-              )
-            })}
-          </Row>}
+          {this.props.affixTarget ? (
+            <Affix
+              target={this.props.affixTarget}
+              offsetBottom={this.props.affixOffsetBottom}
+              offsetTop={this.props.affixOffsetTop}
+            >
+              {ActionPanel}
+            </Affix>
+          ) : ActionPanel}
           <Row>
             <Table
               bordered
