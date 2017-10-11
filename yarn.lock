@@ -174,14 +174,19 @@
   version "20.0.8"
   resolved "https://registry.npmjs.org/@types/jest/-/jest-20.0.8.tgz#7f8c97f73d20d3bf5448fbe33661a342002b5954"
 
+"@types/node@*":
+  version "8.0.34"
+  resolved "https://registry.npmjs.org/@types/node/-/node-8.0.34.tgz#55f801fa2ddb2a40dd6dfc15ecfe1dde9c129fe9"
+
 "@types/node@^8.0.23":
   version "8.0.31"
   resolved "https://registry.npmjs.org/@types/node/-/node-8.0.31.tgz#d9af61093cf4bfc9f066ca34de0175012cfb0ce9"
 
-"@types/react-dom@^15.5.3":
-  version "15.5.5"
-  resolved "https://registry.npmjs.org/@types/react-dom/-/react-dom-15.5.5.tgz#6b117c7697b61fe74132bfe5c72bceb3319433b8"
+"@types/react-dom@^16.0.1":
+  version "16.0.1"
+  resolved "https://registry.npmjs.org/@types/react-dom/-/react-dom-16.0.1.tgz#de159d00dd70050000f462e8bcff0c08ef803dee"
   dependencies:
+    "@types/node" "*"
     "@types/react" "*"
 
 "@types/react@*", "@types/react@^16.0.2":
