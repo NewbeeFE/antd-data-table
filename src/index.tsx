@@ -218,7 +218,7 @@ export class DataTable extends React.Component<IDataTableProps, IDataTableState>
     })}
   </Card>)
 
-  constructor(props) {
+  constructor (props) {
     super(props)
 
     if (this.props.enableListSelection && !this.props.name) {
