@@ -106,6 +106,8 @@ export interface IDataTableProps {
   /** reject handler */
   onError? (err): void,
   rowSelection?: TableRowSelection<any>,
+  /** 是否展示选择框列 */
+  showSelectColumns?: boolean,
   affixTarget?: () => HTMLElement,
   affixOffsetTop?: number,
   affixOffsetBottom?: number
@@ -173,7 +175,8 @@ export class DataTable extends React.Component<IDataTableProps, IDataTableState>
     pageSize: 10,
     searchBtnText: 'Search',
     clearBtnText: 'Clear',
-    listSelectionBtnText: 'List selection'
+    listSelectionBtnText: 'List selection',
+    showSelectColumns: true
   }
 
   readonly actionsColumn = this.props.rowActions && { key: 'actions', title: 'Actions', render: (record) => { return renderActions(this.props.rowActions as RowAction[], record) } } as TableColumnConfig<any>
@@ -349,14 +352,14 @@ export class DataTable extends React.Component<IDataTableProps, IDataTableState>
   }
 
   render () {
-    const rowSelection = Object.assign({}, {
+    const rowSelection = this.props.showSelectColumns ? Object.assign({}, {
       selectedRowKeys: this.state.selectedRowKeys,
       onChange: (selectedRowKeys, selectedRows) => {
         this.setState({
           selectedRowKeys, selectedRows
         })
       }
-    }, this.props.rowSelection)
+    }, this.props.rowSelection) : undefined
 
     const ActionPanel = this.props.plugins && (
       <Row className='operationpannel' gutter={16} type='flex' style={{ paddingBottom: '1em' }}>
