@@ -334,6 +334,10 @@ Pixels to offset from bottom when calculating position of scroll
 
 show select columns or not, default is true
 
+### `actionText:` string
+
+action header title, default is 'Action'
+
 ## FAQ
 
 ### How to trigger the `onSearch` action imperatively?
