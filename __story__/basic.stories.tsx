@@ -10,7 +10,7 @@ import { TableColumnConfig } from 'antd/lib/table/Table'
 /** Import component */
 import { DataTable, SearchField, SearchInfo, SearchResponse } from '../src'
 
-import { searchFields, columns, onSearch, onError } from './share'
+import { searchFields, columns, expands, onSearch, onError } from './share'
 
 storiesOf('DataTable', module)
   .addDecorator(withReadme(require('./basic.md')))
@@ -22,6 +22,7 @@ storiesOf('DataTable', module)
         initialColumns={columns}
         onSearch={onSearch}
         loadDataImmediately={true}
+        initialExpands={expands}
       />
     </div>
   ))

@@ -2,7 +2,7 @@ import * as React from 'react'
 import { message, Button } from 'antd'
 import axios from 'axios'
 import { action } from '@storybook/addon-actions'
-import { SearchInfo, SearchField, Plugin, RowAction } from '../src/index'
+import { SearchInfo, SearchField, Plugin, RowAction, Expand } from '../src/index'
 import { TableColumnConfig } from 'antd/lib/table/Table'
 
 export const onSearch = async (info: SearchInfo) => {
@@ -33,6 +33,20 @@ export const columns: TableColumnConfig<any>[] = [
     key: 'title',
     title: 'Title',
     dataIndex: 'title'
+  }
+]
+
+export const expands: Expand[] = [
+  {
+    title: 'Body',
+    dataIndex: 'body',
+    render (value, record) {
+      return value && `${value.substr(0, 100)} ...`
+    }
+  },
+  {
+    title: 'User ID',
+    dataIndex: 'userId'
   }
 ]
 

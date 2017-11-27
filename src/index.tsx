@@ -80,6 +80,12 @@ export type Plugin = {
   renderer: (selectedRowKeys: string[], selectedRows: any[], clearSelectionCallback: () => void) => React.ReactNode
 }
 
+export type Expand = {
+  title: string,
+  dataIndex: string,
+  render?: (text: any, record?: {}) => React.ReactNode
+}
+
 /** Your component's props */
 export interface IDataTableProps {
   name?: string,
@@ -108,7 +114,8 @@ export interface IDataTableProps {
   rowSelection?: TableRowSelection<any>,
   affixTarget?: () => HTMLElement,
   affixOffsetTop?: number,
-  affixOffsetBottom?: number
+  affixOffsetBottom?: number,
+  initialExpands?: Expand[]
 }
 
 /** Your component's state */
@@ -348,6 +355,41 @@ export class DataTable extends React.Component<IDataTableProps, IDataTableState>
     }
   }
 
+  private accordingly = (dataIndex: string, record: Object) => {
+    const indexArr = dataIndex.split('.')
+    const key = indexArr.shift() || ''
+    const index = indexArr.join('.')
+    const subData = record[key] || {}
+    const value = record[key] || ''
+    return indexArr.length ? this.accordingly(index, subData) : value
+  }
+
+  private renderExpandedRow = (record) => {
+    const { initialExpands } = this.props
+    const expandTitleStyle: Object = {
+      textAlign: 'right',
+      color: 'rgba(0, 0, 0, 0.85)',
+      fontWeight: 500
+    }
+    if (initialExpands) {
+      return (
+        <Row gutter={16}>
+          {initialExpands.map(col => {
+            const value = this.accordingly(col.dataIndex, record)
+            return (
+              <Col sm={12} md={8} xl={6}>
+                <Row gutter={8}>
+                  <Col span={8} style={expandTitleStyle}>{col.title}</Col>
+                  <Col span={16}>{col.render ? col.render(value, record) : value}</Col>
+                </Row>
+              </Col>
+            )
+          })}
+        </Row>
+      )
+    }
+  }
+
   render () {
     const rowSelection = Object.assign({}, {
       selectedRowKeys: this.state.selectedRowKeys,
@@ -397,6 +439,7 @@ export class DataTable extends React.Component<IDataTableProps, IDataTableState>
               dataSource={this.state.data}
               onChange={this.handleChange}
               pagination={this.state.pagination}
+              expandedRowRender={this.props.initialExpands ? this.renderExpandedRow : undefined}
             />
           </Row>
         </div>
