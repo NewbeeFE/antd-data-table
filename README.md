@@ -74,6 +74,20 @@ const columns: TableColumnConfig<any>[] = [
   }
 ]
 
+const expands: Expand[] = [
+  {
+    title: 'Body',
+    dataIndex: 'body',
+    render (value) {
+      return value && `${value.substr(0, 100)} ...`
+    }
+  },
+  {
+    title: 'User ID',
+    dataIndex: 'userId'
+  }
+]
+
 const onSearch = async ({ page, pageSize, values }) => {
   const res = await axios.get('http://jsonplaceholder.typicode.com/posts', {
     params: {
@@ -92,6 +106,7 @@ render(
     rowKey={record => record.id}
     searchFields={searchFields}
     initialColumns={columns}
+    initialExpands={expands}
     onSearch={onSearch}
   />
 , mountNode)
@@ -157,6 +172,7 @@ render(
     rowKey={record => record.id}
     searchFields={searchFields}
     initialColumns={columns}
+    initialExpands={expands}
     onSearch={onSearch}
     actions={actions}
   />
@@ -194,6 +210,7 @@ render (
     searchFields={searchFields}
     plugins={plugins}
     initialColumns={columns}
+    initialExpands={expands}
     onSearch={onSearch}
   />
 , mountNode)
@@ -264,6 +281,19 @@ interface payload {
 ### `initialColumns: TableColumnConfig[]`
 
 antd's TableColumnConfig. See more at https://ant.design/components/form/
+
+### `initialExpands: Expand[]`
+
+```ts
+type Expand = {
+  /** Title of this column **/
+  title: string,
+  /** Display field of the data record, could be set like a.b.c **/
+  dataIndex: string,
+  /** Renderer of the column in the expanded. The return value should be a ReactNode **/
+  render?: (text: any, record?: {}) => React.ReactNode
+}
+```
 
 ### `onSearch<T> (info: SearchInfo): Promise<SearchResponse<T>>`
 
@@ -361,6 +391,7 @@ render () {
         rowKey={record => record.id}
         searchFields={searchFields}
         initialColumns={columns}
+        initialExpands={expands}
         onSearch={onSearch}
         pageSize={10}
         onError={onError}

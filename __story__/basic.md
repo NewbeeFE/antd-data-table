@@ -58,6 +58,20 @@ const columns: TableColumnConfig<any>[] = [
   }
 ]
 
+const expands: Expand[] = [
+  {
+    title: 'Body',
+    dataIndex: 'body',
+    render (value, record) {
+      return value && `${value.substr(0, 100)} ...`
+    }
+  },
+  {
+    title: 'User ID',
+    dataIndex: 'userId'
+  }
+]
+
 const onSearch = async ({ page, pageSize, values }) => {
   const res = await axios.get('http://jsonplaceholder.typicode.com/posts', {
     params: {
