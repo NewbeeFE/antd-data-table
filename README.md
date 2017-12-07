@@ -360,6 +360,14 @@ Pixels to offset from top when calculating position of scroll
 
 Pixels to offset from bottom when calculating position of scroll	
 
+### `showSelectColumns?`: boolean
+
+show select columns or not, default is true
+
+### `actionText:` string
+
+action header title, default is 'Action'
+
 ## FAQ
 
 ### How to trigger the `onSearch` action imperatively?
