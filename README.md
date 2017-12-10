@@ -4,6 +4,7 @@
 [![npm](https://img.shields.io/npm/v/antd-data-table.svg)](https://www.npmjs.com/package/antd-data-table)
 [![Build Status](https://travis-ci.org/NewbeeFE/antd-data-table.svg?branch=master)](https://travis-ci.org/NewbeeFE/antd-data-table)
 [![antd](https://img.shields.io/badge/antd-v2.x-yellowgreen.svg)](https://github.com/ant-design/ant-design)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FBoizZ%2Fantd-data-table.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FBoizZ%2Fantd-data-table?ref=badge_shield)
 
 A component that combines antd's Table and Form to do the search, display, and operating jobs for data.
 
@@ -429,3 +430,6 @@ $ npm publish
 # License
 
 MIT License
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FBoizZ%2Fantd-data-table.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FBoizZ%2Fantd-data-table?ref=badge_large)
