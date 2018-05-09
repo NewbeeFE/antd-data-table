@@ -7,10 +7,9 @@ import axios from 'axios'
 import {
   Button
 } from 'antd'
-import { TableColumnConfig } from 'antd/lib/table/Table'
 
 /** Import component */
-import { DataTable, SearchField, SearchInfo, SearchResponse } from '../src'
+import { DataTable, SearchField, SearchInfo, SearchResponse, TableColumnConfig } from '../src'
 import { searchFields, columns, onSearch, onError } from './share'
 
 storiesOf('DataTable', module)

@@ -4,10 +4,8 @@ import withReadme from 'storybook-readme/with-readme'
 
 import axios from 'axios'
 
-import { TableColumnConfig } from 'antd/lib/table/Table'
-
 /** Import component */
-import { DataTable, SearchField, SearchInfo } from '../src'
+import { DataTable, SearchField, SearchInfo, TableColumnConfig } from '../src'
 
 import { searchFields, columns, onSearch, onError } from './share'
 

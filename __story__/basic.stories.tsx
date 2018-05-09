@@ -5,10 +5,8 @@ import { storiesOf } from '@storybook/react'
 import { message } from 'antd'
 import axios from 'axios'
 
-import { TableColumnConfig } from 'antd/lib/table/Table'
-
 /** Import component */
-import { DataTable, SearchField, SearchInfo, SearchResponse } from '../src'
+import { DataTable, SearchField, SearchInfo, SearchResponse, TableColumnConfig } from '../src'
 
 import { searchFields, columns, expands, onSearch, onError } from './share'
 
