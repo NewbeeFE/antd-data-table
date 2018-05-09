@@ -416,7 +416,7 @@ export class DataTable extends React.Component<IDataTableProps, IDataTableState>
     const searchProps = {
       ...this.props,
       fetch: this.fetch,
-      btnLoading: this.state.searchButtonLoading,
+      btnLoading: this.state.searchButtonLoading
     }
 
     return (
