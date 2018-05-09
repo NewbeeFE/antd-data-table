@@ -2,8 +2,7 @@ import * as React from 'react'
 import { message, Button } from 'antd'
 import axios from 'axios'
 import { action } from '@storybook/addon-actions'
-import { SearchInfo, SearchField, Plugin, RowAction, Expand } from '../src/index'
-import { TableColumnConfig } from 'antd/lib/table/Table'
+import { SearchInfo, SearchField, Plugin, RowAction, Expand, TableColumnConfig } from '../src/index'
 
 export const onSearch = async (info: SearchInfo) => {
   const params = {

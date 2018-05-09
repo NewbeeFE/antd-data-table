@@ -8,10 +8,8 @@ import {
 
 import axios from 'axios'
 
-import { TableColumnConfig } from 'antd/lib/table/Table'
-
 /** Import component */
-import { DataTable, SearchField, SearchInfo, Plugin } from '../src'
+import { DataTable, SearchField, SearchInfo, Plugin, TableColumnConfig } from '../src'
 
 import { searchFields, columns, onSearch, onError, plugins } from './share'
 

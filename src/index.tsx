@@ -12,11 +12,12 @@ import {
   Affix
 } from 'antd'
 import * as update from 'immutability-helper'
-import { TableColumnConfig, TableRowSelection } from 'antd/lib/table/Table'
-import { ColumnProps } from 'antd/lib/table/Column' // tslint:disable-line
+import { TableRowSelection, ColumnProps } from 'antd/lib/table'// tslint:disable-line
 import { PaginationProps } from 'antd/lib/pagination/Pagination'
 import { ValidationRule } from 'antd/lib/form/Form'
 import SearchField from './SearchField'
+
+export type TableColumnConfig<T> = ColumnProps<T>
 
 export type ValidateError = {
   [fieldName: string]: {
@@ -212,9 +213,9 @@ export class DataTable extends React.Component<IDataTableProps, IDataTableState>
       const isSelected = this.state.columns.find(c => c.key === column.key) !== undefined
       const onChange = (e) => {
         if (e.target.checked) {
-          this.showColumn(column.key)
+          this.showColumn(String(column.key))
         } else {
-          this.hideColumn(column.key)
+          this.hideColumn(String(column.key))
         }
       }
       return (
@@ -412,10 +413,16 @@ export class DataTable extends React.Component<IDataTableProps, IDataTableState>
       </Row>
     )
 
+    const searchProps = {
+      ...this.props,
+      fetch: this.fetch,
+      btnLoading: this.state.searchButtonLoading
+    }
+
     return (
       <div>
         <div>
-          <SearchField {...this.props} fetch={this.fetch} btnLoading={this.state.searchButtonLoading} />
+          <SearchField {...searchProps} />
         </div>
         <div>
           {this.props.affixTarget ? (
