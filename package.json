@@ -27,9 +27,9 @@
     "@types/immutability-helper": "^2.0.15",
     "@types/jest": "^20.0.7",
     "@types/node": "^8.0.23",
-    "@types/react": "^16.0.2",
-    "@types/react-dom": "^16.0.1",
-    "antd": "^2.12.6",
+    "@types/react": "^16",
+    "@types/react-dom": "^16",
+    "antd": "^3",
     "awesome-typescript-loader": "^3.2.3",
     "axios": "^0.16.2",
     "css-loader": "^0.28.5",
@@ -40,8 +40,8 @@
     "less": "^2.7.2",
     "less-loader": "^4.0.5",
     "raw-loader": "^0.5.1",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
+    "react": "^16",
+    "react-dom": "^16",
     "react-test-renderer": "^15.6.1",
     "rimraf": "^2.6.1",
     "storybook-readme": "^3.0.6",
@@ -56,8 +56,8 @@
     "immutability-helper": "^2.3.1"
   },
   "peerDependencies": {
-    "antd": "^2.x",
-    "react": "^15.x"
+    "antd": ">=3",
+    "react": ">=16"
   },
   "jest": {
     "transform": {

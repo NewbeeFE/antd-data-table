@@ -12,11 +12,10 @@ import {
   Affix
 } from 'antd'
 import * as update from 'immutability-helper'
-import { TableColumnConfig, TableRowSelection } from 'antd/lib/table/Table'
-import { ColumnProps } from 'antd/lib/table/Column' // tslint:disable-line
 import { PaginationProps } from 'antd/lib/pagination/Pagination'
 import { ValidationRule } from 'antd/lib/form/Form'
 import SearchField from './SearchField'
+import { TableRowSelection, ColumnProps } from 'antd/lib/table'
 
 export type ValidateError = {
   [fieldName: string]: {
@@ -89,7 +88,7 @@ export type Expand = {
 /** Your component's props */
 export interface IDataTableProps {
   name?: string,
-  initialColumns: TableColumnConfig<any>[],
+  initialColumns: ColumnProps<any>[],
   searchFields: SearchField[],
   rowActions?: RowAction[],
   enableListSelection?: boolean,
@@ -120,7 +119,7 @@ export interface IDataTableProps {
 
 /** Your component's state */
 export interface IDataTableState {
-  columns: TableColumnConfig<any>[],
+  columns: ColumnProps<any>[],
   data: any[],
   page: number,
   currentValues: object,
@@ -183,7 +182,7 @@ export class DataTable extends React.Component<IDataTableProps, IDataTableState>
     listSelectionBtnText: 'List selection'
   }
 
-  readonly actionsColumn = this.props.rowActions && { key: 'actions', title: 'Actions', render: (record) => { return renderActions(this.props.rowActions as RowAction[], record) } } as TableColumnConfig<any>
+  readonly actionsColumn = this.props.rowActions && { key: 'actions', title: 'Actions', render: (record) => { return renderActions(this.props.rowActions as RowAction[], record) } } as ColumnProps<any>
 
   readonly shouldShowTableTitle = this.props.title || this.props.enableListSelection
 
@@ -262,7 +261,7 @@ export class DataTable extends React.Component<IDataTableProps, IDataTableState>
     })
   }
 
-  private saveVisibleColumnKeysToStorage = (columns: TableColumnConfig<any>[]) => {
+  private saveVisibleColumnKeysToStorage = (columns: ColumnProps<any>[]) => {
     localStorage.setItem(`${DataTable.storageKey}-${this.props.name}-columnIds`, columns.map(column => column.key).join(','))
   }
 
@@ -287,7 +286,7 @@ export class DataTable extends React.Component<IDataTableProps, IDataTableState>
     this.fetch(pager.current || 1) // tslint:disable-line
   }
 
-  private hideColumn = (key?: string) => {
+  private hideColumn = (key?: string | number) => {
     this.state.columns.forEach((column, i) => {
       if (column.key === key) {
         const columns = update(this.state.columns, { $splice: [[i, 1]] })
@@ -305,7 +304,7 @@ export class DataTable extends React.Component<IDataTableProps, IDataTableState>
     })
   }
 
-  private showColumn = (key?: string) => {
+  private showColumn = (key?: string | number) => {
     this.initialColumns.forEach((column, i) => {
       if (column.key === key) {
         const columns = update(this.state.columns, { $splice: [[i, 0, column]] })

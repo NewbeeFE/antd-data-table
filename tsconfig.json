@@ -6,7 +6,6 @@
     "target": "es5",
     "experimentalDecorators": true,
     "declaration": true,
-    "allowSyntheticDefaultImports": true,
     "rootDirs": [
       "src",
       "__story__"
