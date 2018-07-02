@@ -51,37 +51,44 @@ exports[`DataTable should render correctly 1`] = `
               className="ant-col-24 ant-form-item-control-wrapper"
             >
               <div
-                className="ant-form-item-control "
+                className="ant-form-item-control"
               >
-                <input
-                  className="ant-input ant-input-lg"
-                  data-__meta={
-                    Object {
-                      "initialValue": undefined,
-                      "leadingName": "id",
-                      "name": "id",
-                      "originalProps": Object {
-                        "disabled": false,
-                        "placeholder": "placeholder",
-                        "prefixCls": "ant-input",
-                        "type": "text",
-                      },
-                      "ref": null,
-                      "rules": undefined,
-                      "trigger": "onChange",
-                      "validate": Array [],
-                      "valuePropName": "value",
+                <span
+                  className="ant-form-item-children"
+                >
+                  <input
+                    className="ant-input"
+                    data-__field={
+                      Object {
+                        "name": "id",
+                      }
                     }
-                  }
-                  disabled={false}
-                  id="id"
-                  onChange={[Function]}
-                  onKeyDown={[Function]}
-                  placeholder="placeholder"
-                  size="large"
-                  type="text"
-                  value=""
-                />
+                    data-__meta={
+                      Object {
+                        "initialValue": undefined,
+                        "name": "id",
+                        "originalProps": Object {
+                          "disabled": false,
+                          "placeholder": "placeholder",
+                          "prefixCls": "ant-input",
+                          "type": "text",
+                        },
+                        "ref": null,
+                        "rules": undefined,
+                        "trigger": "onChange",
+                        "validate": Array [],
+                        "valuePropName": "value",
+                      }
+                    }
+                    disabled={false}
+                    id="id"
+                    onChange={[Function]}
+                    onKeyDown={[Function]}
+                    placeholder="placeholder"
+                    type="text"
+                    value=""
+                  />
+                </span>
               </div>
             </div>
           </div>
@@ -118,71 +125,75 @@ exports[`DataTable should render correctly 1`] = `
               <div
                 className="ant-form-item-control has-success"
               >
-                <div
-                  className="ant-select-lg ant-select ant-select-enabled ant-select-allow-clear"
-                  onBlur={[Function]}
-                  onClick={[Function]}
-                  onFocus={[Function]}
-                  onMouseDown={[Function]}
-                  onMouseEnter={undefined}
-                  onMouseLeave={undefined}
-                  onTouchStart={[Function]}
-                  style={undefined}
+                <span
+                  className="ant-form-item-children"
                 >
                   <div
-                    aria-autocomplete="list"
-                    aria-expanded={false}
-                    aria-haspopup="true"
-                    className="ant-select-selection
-                              ant-select-selection--single"
-                    onKeyDown={[Function]}
-                    role="combobox"
-                    tabIndex={0}
+                    className="ant-select ant-select-enabled ant-select-allow-clear"
+                    onBlur={[Function]}
+                    onClick={[Function]}
+                    onContextMenu={undefined}
+                    onFocus={[Function]}
+                    onMouseDown={[Function]}
+                    onMouseEnter={undefined}
+                    onMouseLeave={undefined}
+                    onTouchStart={[Function]}
+                    style={undefined}
                   >
                     <div
-                      className="ant-select-selection__rendered"
+                      aria-autocomplete="list"
+                      aria-expanded={false}
+                      aria-haspopup="true"
+                      className="ant-select-selection
+                                ant-select-selection--single"
+                      onKeyDown={[Function]}
+                      role="combobox"
+                      tabIndex={0}
                     >
                       <div
-                        className="ant-select-selection-selected-value"
+                        className="ant-select-selection__rendered"
+                      >
+                        <div
+                          className="ant-select-selection-selected-value"
+                          style={
+                            Object {
+                              "display": "block",
+                              "opacity": 1,
+                            }
+                          }
+                          title="one"
+                        >
+                          one
+                        </div>
+                      </div>
+                      <span
+                        className="ant-select-selection__clear"
+                        onClick={[Function]}
+                        onMouseDown={[Function]}
                         style={
                           Object {
-                            "display": "block",
-                            "opacity": 1,
+                            "WebkitUserSelect": "none",
+                            "userSelect": "none",
                           }
                         }
-                        title="one"
+                        unselectable="on"
+                      />
+                      <span
+                        className="ant-select-arrow"
+                        onClick={[Function]}
+                        style={
+                          Object {
+                            "WebkitUserSelect": "none",
+                            "userSelect": "none",
+                          }
+                        }
+                        unselectable="on"
                       >
-                        one
-                      </div>
+                        <b />
+                      </span>
                     </div>
-                    <span
-                      className="ant-select-selection__clear"
-                      onClick={[Function]}
-                      onMouseDown={[Function]}
-                      style={
-                        Object {
-                          "WebkitUserSelect": "none",
-                          "display": "block",
-                          "userSelect": "none",
-                        }
-                      }
-                      unselectable="unselectable"
-                    />
-                    <span
-                      className="ant-select-arrow"
-                      onClick={[Function]}
-                      style={
-                        Object {
-                          "WebkitUserSelect": "none",
-                          "userSelect": "none",
-                        }
-                      }
-                      unselectable="unselectable"
-                    >
-                      <b />
-                    </span>
                   </div>
-                </div>
+                </span>
               </div>
             </div>
           </div>
@@ -217,61 +228,66 @@ exports[`DataTable should render correctly 1`] = `
               className="ant-col-24 ant-form-item-control-wrapper"
             >
               <div
-                className="ant-form-item-control "
+                className="ant-form-item-control"
               >
-                <div
-                  className="ant-select-lg ant-select ant-select-enabled"
-                  onBlur={[Function]}
-                  onClick={[Function]}
-                  onFocus={[Function]}
-                  onMouseDown={[Function]}
-                  onMouseEnter={undefined}
-                  onMouseLeave={undefined}
-                  onTouchStart={[Function]}
-                  style={undefined}
+                <span
+                  className="ant-form-item-children"
                 >
                   <div
-                    aria-autocomplete="list"
-                    aria-expanded={false}
-                    aria-haspopup="true"
-                    className="ant-select-selection
-                              ant-select-selection--multiple"
-                    role="combobox"
+                    className="ant-select ant-select-enabled"
+                    onBlur={[Function]}
+                    onClick={[Function]}
+                    onContextMenu={undefined}
+                    onFocus={[Function]}
+                    onMouseDown={[Function]}
+                    onMouseEnter={undefined}
+                    onMouseLeave={undefined}
+                    onTouchStart={[Function]}
+                    style={undefined}
                   >
                     <div
-                      className="ant-select-selection__rendered"
+                      aria-autocomplete="list"
+                      aria-expanded={false}
+                      aria-haspopup="true"
+                      className="ant-select-selection
+                                ant-select-selection--multiple"
+                      role="combobox"
                     >
-                      <ul
-                        className={undefined}
-                        style={undefined}
+                      <div
+                        className="ant-select-selection__rendered"
                       >
-                        <li
-                          className="ant-select-search ant-select-search--inline"
+                        <ul
+                          className={undefined}
+                          style={undefined}
                         >
-                          <div
-                            className="ant-select-search__field__wrap"
+                          <li
+                            className="ant-select-search ant-select-search--inline"
                           >
-                            <input
-                              autoComplete="off"
-                              className="ant-select-search__field"
-                              disabled={undefined}
-                              id="multi-select"
-                              onChange={[Function]}
-                              onKeyDown={[Function]}
-                              value=""
-                            />
-                            <span
-                              className="ant-select-search__field__mirror"
+                            <div
+                              className="ant-select-search__field__wrap"
                             >
-                              
-                               
-                            </span>
-                          </div>
-                        </li>
-                      </ul>
+                              <input
+                                autoComplete="off"
+                                className="ant-select-search__field"
+                                disabled={undefined}
+                                id="multi-select"
+                                onChange={[Function]}
+                                onKeyDown={[Function]}
+                                value=""
+                              />
+                              <span
+                                className="ant-select-search__field__mirror"
+                              >
+                                
+                                 
+                              </span>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
                     </div>
                   </div>
-                </div>
+                </span>
               </div>
             </div>
           </div>
@@ -306,33 +322,41 @@ exports[`DataTable should render correctly 1`] = `
               className="ant-col-24 ant-form-item-control-wrapper"
             >
               <div
-                className="ant-form-item-control "
+                className="ant-form-item-control"
               >
                 <span
-                  className="ant-calendar-picker"
-                  style={Object {}}
+                  className="ant-form-item-children"
                 >
-                  <div
-                    onBlur={undefined}
-                    onClick={[Function]}
-                    onFocus={undefined}
-                    onKeyDown={[Function]}
-                    onMouseDown={[Function]}
-                    onMouseEnter={undefined}
-                    onMouseLeave={undefined}
-                    onTouchStart={[Function]}
+                  <span
+                    className="ant-calendar-picker"
+                    id="datePicker"
+                    onBlur={[Function]}
+                    onFocus={[Function]}
+                    style={undefined}
                   >
-                    <input
-                      className="ant-calendar-picker-input ant-input ant-input-lg"
-                      disabled={undefined}
-                      placeholder="请选择日期"
-                      readOnly={true}
-                      value=""
-                    />
-                    <span
-                      className="ant-calendar-picker-icon"
-                    />
-                  </div>
+                    <div
+                      onBlur={undefined}
+                      onClick={[Function]}
+                      onContextMenu={undefined}
+                      onFocus={undefined}
+                      onKeyDown={[Function]}
+                      onMouseDown={[Function]}
+                      onMouseEnter={undefined}
+                      onMouseLeave={undefined}
+                      onTouchStart={[Function]}
+                    >
+                      <input
+                        className="ant-calendar-picker-input ant-input"
+                        disabled={undefined}
+                        placeholder="Select date"
+                        readOnly={true}
+                        value=""
+                      />
+                      <span
+                        className="ant-calendar-picker-icon"
+                      />
+                    </div>
+                  </span>
                 </span>
               </div>
             </div>
@@ -368,47 +392,52 @@ exports[`DataTable should render correctly 1`] = `
               className="ant-col-24 ant-form-item-control-wrapper"
             >
               <div
-                className="ant-form-item-control "
+                className="ant-form-item-control"
               >
                 <span
-                  className="ant-select-lg ant-select ant-select-enabled"
-                  onBlur={undefined}
-                  onClick={[Function]}
-                  onFocus={undefined}
-                  onMouseDown={[Function]}
-                  onMouseEnter={undefined}
-                  onMouseLeave={undefined}
-                  onTouchStart={[Function]}
-                  style={undefined}
+                  className="ant-form-item-children"
                 >
                   <span
-                    aria-autocomplete="list"
-                    aria-expanded={undefined}
-                    aria-haspopup="true"
-                    className="ant-select-selection
-                              ant-select-selection--single"
-                    onKeyDown={[Function]}
-                    role="combobox"
-                    tabIndex={0}
+                    className="ant-select ant-select-enabled"
+                    onBlur={undefined}
+                    onClick={[Function]}
+                    onContextMenu={undefined}
+                    onFocus={undefined}
+                    onMouseDown={[Function]}
+                    onMouseEnter={undefined}
+                    onMouseLeave={undefined}
+                    onTouchStart={[Function]}
+                    style={undefined}
                   >
                     <span
-                      className="ant-select-selection__rendered"
+                      aria-autocomplete="list"
+                      aria-expanded={undefined}
+                      aria-haspopup="true"
+                      className="ant-select-selection
+                                ant-select-selection--single"
+                      onKeyDown={[Function]}
+                      role="combobox"
+                      tabIndex={0}
                     >
                       <span
-                        className="ant-select-selection__placeholder"
+                        className="ant-select-selection__rendered"
                       >
-                        
+                        <span
+                          className="ant-select-selection__placeholder"
+                        >
+                          
+                        </span>
                       </span>
-                    </span>
-                    <span
-                      className="ant-select-arrow"
-                      style={
-                        Object {
-                          "outline": "none",
+                      <span
+                        className="ant-select-arrow"
+                        style={
+                          Object {
+                            "outline": "none",
+                          }
                         }
-                      }
-                    >
-                      <b />
+                      >
+                        <b />
+                      </span>
                     </span>
                   </span>
                 </span>
@@ -446,35 +475,42 @@ exports[`DataTable should render correctly 1`] = `
               className="ant-col-24 ant-form-item-control-wrapper"
             >
               <div
-                className="ant-form-item-control "
+                className="ant-form-item-control"
               >
-                <input
-                  className="ant-input ant-input-lg"
-                  data-__meta={
-                    Object {
-                      "initialValue": undefined,
-                      "leadingName": "foo",
-                      "name": "foo",
-                      "originalProps": Object {
-                        "disabled": false,
-                        "prefixCls": "ant-input",
-                        "type": "text",
-                      },
-                      "ref": null,
-                      "rules": undefined,
-                      "trigger": "onChange",
-                      "validate": Array [],
-                      "valuePropName": "value",
+                <span
+                  className="ant-form-item-children"
+                >
+                  <input
+                    className="ant-input"
+                    data-__field={
+                      Object {
+                        "name": "foo",
+                      }
                     }
-                  }
-                  disabled={false}
-                  id="foo"
-                  onChange={[Function]}
-                  onKeyDown={[Function]}
-                  size="large"
-                  type="text"
-                  value=""
-                />
+                    data-__meta={
+                      Object {
+                        "initialValue": undefined,
+                        "name": "foo",
+                        "originalProps": Object {
+                          "disabled": false,
+                          "prefixCls": "ant-input",
+                          "type": "text",
+                        },
+                        "ref": null,
+                        "rules": undefined,
+                        "trigger": "onChange",
+                        "validate": Array [],
+                        "valuePropName": "value",
+                      }
+                    }
+                    disabled={false}
+                    id="foo"
+                    onChange={[Function]}
+                    onKeyDown={[Function]}
+                    type="text"
+                    value=""
+                  />
+                </span>
               </div>
             </div>
           </div>
@@ -509,35 +545,42 @@ exports[`DataTable should render correctly 1`] = `
               className="ant-col-24 ant-form-item-control-wrapper"
             >
               <div
-                className="ant-form-item-control "
+                className="ant-form-item-control"
               >
-                <input
-                  className="ant-input ant-input-lg"
-                  data-__meta={
-                    Object {
-                      "initialValue": undefined,
-                      "leadingName": "bar",
-                      "name": "bar",
-                      "originalProps": Object {
-                        "disabled": false,
-                        "prefixCls": "ant-input",
-                        "type": "text",
-                      },
-                      "ref": null,
-                      "rules": undefined,
-                      "trigger": "onChange",
-                      "validate": Array [],
-                      "valuePropName": "value",
+                <span
+                  className="ant-form-item-children"
+                >
+                  <input
+                    className="ant-input"
+                    data-__field={
+                      Object {
+                        "name": "bar",
+                      }
                     }
-                  }
-                  disabled={false}
-                  id="bar"
-                  onChange={[Function]}
-                  onKeyDown={[Function]}
-                  size="large"
-                  type="text"
-                  value=""
-                />
+                    data-__meta={
+                      Object {
+                        "initialValue": undefined,
+                        "name": "bar",
+                        "originalProps": Object {
+                          "disabled": false,
+                          "prefixCls": "ant-input",
+                          "type": "text",
+                        },
+                        "ref": null,
+                        "rules": undefined,
+                        "trigger": "onChange",
+                        "validate": Array [],
+                        "valuePropName": "value",
+                      }
+                    }
+                    disabled={false}
+                    id="bar"
+                    onChange={[Function]}
+                    onKeyDown={[Function]}
+                    type="text"
+                    value=""
+                  />
+                </span>
               </div>
             </div>
           </div>
@@ -600,6 +643,7 @@ exports[`DataTable should render correctly 1`] = `
           >
             <div
               className="ant-table ant-table-middle ant-table-bordered ant-table-empty ant-table-scroll-position-left"
+              id={undefined}
               style={Object {}}
             >
               <div
@@ -608,6 +652,7 @@ exports[`DataTable should render correctly 1`] = `
                 <div
                   className="ant-table-body"
                   onScroll={[Function]}
+                  onWheel={[Function]}
                   style={Object {}}
                 >
                   <table
@@ -644,7 +689,11 @@ exports[`DataTable should render correctly 1`] = `
                       className="ant-table-thead"
                     >
                       <tr
-                        style={null}
+                        style={
+                          Object {
+                            "height": null,
+                          }
+                        }
                       >
                         <th
                           className="ant-table-selection-column"
@@ -664,9 +713,11 @@ exports[`DataTable should render correctly 1`] = `
                                   style={Object {}}
                                 >
                                   <input
+                                    autoFocus={undefined}
                                     checked={false}
                                     className="ant-checkbox-input"
                                     disabled={true}
+                                    id={undefined}
                                     name={undefined}
                                     onBlur={[Function]}
                                     onChange={[Function]}
@@ -675,6 +726,7 @@ exports[`DataTable should render correctly 1`] = `
                                     readOnly={undefined}
                                     tabIndex={undefined}
                                     type="checkbox"
+                                    value={undefined}
                                   />
                                   <span
                                     className="ant-checkbox-inner"
@@ -708,12 +760,7 @@ exports[`DataTable should render correctly 1`] = `
                 <div
                   className="ant-table-placeholder"
                 >
-                  <span>
-                    <i
-                      className="anticon anticon-frown-o"
-                    />
-                    暂无数据
-                  </span>
+                  No data
                 </div>
               </div>
             </div>

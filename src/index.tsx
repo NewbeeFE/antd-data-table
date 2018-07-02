@@ -11,7 +11,7 @@ import {
   Menu,
   Affix
 } from 'antd'
-import update = require('immutability-helper')
+import update from 'immutability-helper'
 import { PaginationProps } from 'antd/lib/pagination/Pagination'
 import { ValidationRule } from 'antd/lib/form/Form'
 import SearchField from './SearchField'
@@ -289,7 +289,7 @@ export class DataTable extends React.Component<IDataTableProps, IDataTableState>
   private hideColumn = (key?: string | number) => {
     this.state.columns.forEach((column, i) => {
       if (column.key === key) {
-        const columns = update(this.state.columns, { $splice: [[i, 1]] })
+        const columns = update(this.state.columns, { $splice: [[i, 1]] }) as any
         this.setState({
           columns
         }, () => this.saveVisibleColumnKeysToStorage(columns))
@@ -307,7 +307,7 @@ export class DataTable extends React.Component<IDataTableProps, IDataTableState>
   private showColumn = (key?: string | number) => {
     this.initialColumns.forEach((column, i) => {
       if (column.key === key) {
-        const columns = update(this.state.columns, { $splice: [[i, 0, column]] })
+        const columns = update(this.state.columns, { $splice: [[i, 0, column]] }) as any
         this.setState({
           columns
         }, () => this.saveVisibleColumnKeysToStorage(columns))

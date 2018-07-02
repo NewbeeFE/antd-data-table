@@ -23,9 +23,8 @@ const comesWithRenderer = {
 }
 
 /** Your component's props */
-export interface ISearchFieldProps extends IDataTableProps {
+export interface ISearchFieldProps extends IDataTableProps, FormComponentProps {
   /** antd form instance */
-  form?: WrappedFormUtils,
   fetch: SearchFunc,
   btnLoading: boolean
 }
@@ -149,4 +148,4 @@ export class SearchField extends React.Component<ISearchFieldProps, ISearchField
 }
 
 /** Export as default */
-export default Form.create<ISearchFieldProps>()(SearchField as any)
+export default Form.create<ISearchFieldProps>()(SearchField as any) as any
