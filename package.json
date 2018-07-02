@@ -42,7 +42,7 @@
     "raw-loader": "^0.5.1",
     "react": "^16",
     "react-dom": "^16",
-    "react-test-renderer": "^15.6.1",
+    "react-test-renderer": "^16",
     "rimraf": "^2.6.1",
     "storybook-readme": "^3.0.6",
     "style-loader": "^0.18.2",
