@@ -11,7 +11,7 @@ import {
   Menu,
   Affix
 } from 'antd'
-import * as update from 'immutability-helper'
+import update = require('immutability-helper')
 import { PaginationProps } from 'antd/lib/pagination/Pagination'
 import { ValidationRule } from 'antd/lib/form/Form'
 import SearchField from './SearchField'
