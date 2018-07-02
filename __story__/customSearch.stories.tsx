@@ -7,7 +7,6 @@ import axios from 'axios'
 import {
   Button
 } from 'antd'
-import { TableColumnConfig } from 'antd/lib/table/Table'
 
 /** Import component */
 import { DataTable, SearchField, SearchInfo, SearchResponse } from '../src'

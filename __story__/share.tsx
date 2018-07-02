@@ -3,7 +3,6 @@ import { message, Button } from 'antd'
 import axios from 'axios'
 import { action } from '@storybook/addon-actions'
 import { SearchInfo, SearchField, Plugin, RowAction, Expand } from '../src/index'
-import { TableColumnConfig } from 'antd/lib/table/Table'
 
 export const onSearch = async (info: SearchInfo) => {
   const params = {
@@ -24,7 +23,7 @@ export const onError = (e) => {
   message.error(e.message)
 }
 
-export const columns: TableColumnConfig<any>[] = [
+export const columns = [
   {
     key: 'id',
     title: 'ID',
