@@ -23,7 +23,7 @@
     "@storybook/addon-options": "^3.2.4",
     "@storybook/addon-storyshots": "^3.2.5",
     "@storybook/react": "^3.2.5",
-    "@types/enzyme": "^2.8.6",
+    "@types/enzyme": "^3",
     "@types/immutability-helper": "^2.0.15",
     "@types/jest": "^20.0.7",
     "@types/node": "^8.0.23",
