@@ -318,6 +318,8 @@ type SearchInfo = {
 
 ### `listSelectionBtnText?: string`
 
+### `actionColumnText?: string`
+
 ### `onError? (err): void`
 
 Error handler that trigger when onSearch throw error.
