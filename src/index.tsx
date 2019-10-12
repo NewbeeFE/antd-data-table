@@ -99,6 +99,7 @@ export interface IDataTableProps {
   searchBtnText?: string,
   clearBtnText?: string,
   listSelectionBtnText?: string,
+  actionColumnText: string,  
   /** 最大的表单项显示数，当表单项超过此数值时，会自动出现 collapse 按钮 */
   maxVisibleFieldCount?: number,
   pageSize?: number,
@@ -182,7 +183,7 @@ export class DataTable extends React.Component<IDataTableProps, IDataTableState>
     listSelectionBtnText: 'List selection'
   }
 
-  readonly actionsColumn = this.props.rowActions && { key: 'actions', title: 'Actions', render: (record) => { return renderActions(this.props.rowActions as RowAction[], record) } } as ColumnProps<any>
+  readonly actionsColumn = this.props.rowActions && { key: 'actions', title: this.props.actionColumnText || 'Actions', render: (record) => { return renderActions(this.props.rowActions as RowAction[], record) } } as ColumnProps<any>
 
   readonly shouldShowTableTitle = this.props.title || this.props.enableListSelection
 
