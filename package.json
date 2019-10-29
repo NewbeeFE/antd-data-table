@@ -31,7 +31,7 @@
     "@types/react-dom": "^16",
     "antd": "^3",
     "awesome-typescript-loader": "^3.2.3",
-    "axios": "^0.16.2",
+    "axios": "^0.19.0",
     "css-loader": "^0.28.5",
     "declaration-bundler-webpack-plugin": "^1.0.3",
     "enzyme": "^3",
